@@ -1,0 +1,24 @@
+int state;
+
+int f(int x) {
+    state = state + 1;
+    return x * 3 + 1;
+}
+
+int loop(int s, int t, int d) {
+    int sum = 0;
+    int x = s;
+    while (x < t) {
+        sum = (sum + f(x)) % 998244853;
+        t = t - 10;
+        x = x + d;
+    }
+    return sum + state;
+}
+
+int main() {
+    state = 0;
+    putint(loop(0, 5, 2));
+    putch(10);
+    return 0;
+}

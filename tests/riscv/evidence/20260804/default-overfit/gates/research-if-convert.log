@@ -1,0 +1,4 @@
+[if-convert] converted+merged blk=main.while.body15 
+[if-convert] skip: then block has side effects blk=main.then11 
+[if-convert] converted+merged blk=main.while.body15 
+research if-convert: PASS

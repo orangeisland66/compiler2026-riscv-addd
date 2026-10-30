@@ -1,0 +1,45 @@
+// 正例：转置视图只由后续矩阵计算读取，允许按仿射下标直接转发源数组值。
+int source_grid[64][64];
+int view_grid[64][64];
+int result_grid[64][64];
+
+int main() {
+  int row = 0;
+  while (row < 64) {
+    int column = 0;
+    while (column < 64) {
+      source_grid[row][column] = row + column + 1;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+
+  row = 0;
+  while (row < 64) {
+    int column = 0;
+    while (column < 64) {
+      view_grid[row][column] = source_grid[column][row];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+
+  row = 0;
+  while (row < 64) {
+    int column = 0;
+    while (column < 64) {
+      int inner = 0;
+      int sum = 0;
+      while (inner < 64) {
+        sum = sum + source_grid[row][inner] * view_grid[inner][column];
+        inner = inner + 1;
+      }
+      result_grid[row][column] = sum;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  putint(result_grid[3][5]);
+  putch(10);
+  return 0;
+}

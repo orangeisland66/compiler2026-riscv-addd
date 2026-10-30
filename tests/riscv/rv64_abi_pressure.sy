@@ -1,0 +1,69 @@
+int wide_int(int a0, int a1, int a2, int a3, int a4, int a5,
+             int a6, int a7, int a8, int a9, int a10, int a11) {
+  return a0 + a1 + a2 + a3 + a4 + a5 +
+         a6 + a7 + a8 + a9 + a10 + a11;
+}
+
+float wide_float(float a0, float a1, float a2, float a3, float a4,
+                 float a5, float a6, float a7, float a8, float a9) {
+  return a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9;
+}
+
+int leaf(int value) {
+  return value + 1;
+}
+
+int deep3(int value) {
+  int held = value * 3;
+  return leaf(value) + held;
+}
+
+int deep2(int value) {
+  int held = value + 7;
+  return deep3(value) + held;
+}
+
+int deep1(int value) {
+  int held = value + 11;
+  return deep2(value) + held;
+}
+
+int rotate_values(int count) {
+  int a = 1;
+  int b = 2;
+  int c = 3;
+  while (count > 0) {
+    int old_a = a;
+    a = b;
+    b = c;
+    c = old_a;
+    count = count - 1;
+  }
+  return a * 100 + b * 10 + c;
+}
+
+int large_global[2048];
+
+int main() {
+  int large_local[1300];
+  large_local[0] = 7;
+  large_local[1299] = 9;
+  large_global[2047] = 11;
+
+  putint(wide_int(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+  putch(10);
+  if (wide_float(1.0, 2.0, 3.0, 4.0, 5.0,
+                 6.0, 7.0, 8.0, 9.0, 10.0) > 54.5) {
+    putint(1);
+  } else {
+    putint(0);
+  }
+  putch(10);
+  putint(large_local[0] + large_local[1299] + large_global[2047]);
+  putch(10);
+  putint(rotate_values(1));
+  putch(10);
+  putint(deep1(5));
+  putch(10);
+  return 0;
+}

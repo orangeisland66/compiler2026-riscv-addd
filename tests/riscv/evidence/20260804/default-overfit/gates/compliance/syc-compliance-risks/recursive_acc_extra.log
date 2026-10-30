@@ -1,0 +1,1 @@
+[ast-recursive-accumulator] function=walk_state accum=acc params=4 delta=1 sentinel=7

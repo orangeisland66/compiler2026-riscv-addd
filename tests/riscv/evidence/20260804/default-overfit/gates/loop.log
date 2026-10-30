@@ -1,0 +1,6 @@
+[array_recurrence] inspect func=main header=main.while.cond2 blocks=2 latches=1
+[array_recurrence] func=main header=main.while.cond2 blocks=2 cand=1
+[array_recurrence] inspect func=main header=main.while.cond5 blocks=2 latches=1
+[array_recurrence] func=main header=main.while.cond5 blocks=2 cand=1
+[dead-global-array-store-elim] phase=late gv=scratchpad removed_stores=1
+loop semantic optimizations: PASS

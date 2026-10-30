@@ -1,0 +1,32 @@
+// 外层顺序遍历中包含按链索引退出的子循环，用于验证分块收益判断。
+int chain_next[256];
+int chain_value[256];
+int chain_weight[256];
+int requests[64];
+int answers[64];
+
+int collect_chain(int first) {
+    int current = first;
+    int total = 0;
+    while (current != 0) {
+        total = total + chain_value[current] * chain_weight[current];
+        current = chain_next[current];
+    }
+    return total;
+}
+
+int main() {
+    int count = getint();
+    int i = 0;
+    while (i < count) {
+        requests[i] = getint();
+        i = i + 1;
+    }
+    i = 0;
+    while (i < count) {
+        answers[i] = collect_chain(requests[i]);
+        i = i + 1;
+    }
+    putarray(count, answers);
+    return 0;
+}

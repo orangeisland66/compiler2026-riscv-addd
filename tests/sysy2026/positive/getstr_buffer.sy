@@ -1,0 +1,6 @@
+int main() {
+  char text[8];
+  getstr(text, 8);
+  printf("%s", text);
+  return 0;
+}

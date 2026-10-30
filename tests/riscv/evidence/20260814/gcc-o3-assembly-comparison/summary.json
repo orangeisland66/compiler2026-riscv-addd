@@ -1,0 +1,58 @@
+{
+  "date": "2026-08-14",
+  "branch": "master-new",
+  "head": "0f18dc6e22872e1277dd42780a45de8a4015f123",
+  "compiler_sha256": "b2c47e227b1beb1ad1f639bc7c6f7dd9406f81ce493524726cdf888a4c23c4da",
+  "suite": "/home/orangeisland66/下载/设计文档/2026初赛RISCV赛道性能用例/performance",
+  "cases_discovered": 60,
+  "cases_compared": 60,
+  "failures": 0,
+  "ours_command": "compiler -S -O1 -o output.s input.sy",
+  "gcc_command": "riscv64-linux-gnu-gcc -march=rv64gc -mabi=lp64d -mcmodel=medany -O3 -fwrapv -fno-strict-aliasing -fno-pie -fno-stack-protector -std=gnu11 -include sysy_gcc_compat.h -S",
+  "ours": {
+    "instructions": 19441,
+    "text_bytes": 61518,
+    "loads": 1944,
+    "stores": 831,
+    "conditional_branches": 1203,
+    "jumps": 1515,
+    "stack_accesses": 2658,
+    "functions": 102,
+    "specialized_functions": 3
+  },
+  "gcc": {
+    "instructions": 32103,
+    "text_bytes": 99330,
+    "loads": 1599,
+    "stores": 1812,
+    "conditional_branches": 3066,
+    "jumps": 2079,
+    "stack_accesses": 5010,
+    "functions": 237,
+    "specialized_functions": 12
+  },
+  "ours_to_gcc": {
+    "instructions": 0.6055820328318225,
+    "text_bytes": 0.6193295077016008,
+    "loads": 1.2157598499061915,
+    "stores": 0.4586092715231788,
+    "conditional_branches": 0.3923679060665362,
+    "jumps": 0.7287157287157288,
+    "stack_accesses": 0.5305389221556887
+  },
+  "case_counts": {
+    "ours_more_instructions": 21,
+    "ours_fewer_instructions": 36,
+    "equal_instructions": 3
+  },
+  "derived_observations": {
+    "median_per_case_instruction_ratio": 0.94635,
+    "geomean_per_case_instruction_ratio": 0.9141874090067637,
+    "instruction_ratio_excluding_fft_and_03_sort": 1.0367877972184836,
+    "immediate_store_then_argument_reload_pairs_ours": 237,
+    "immediate_store_then_argument_reload_pairs_gcc": 0,
+    "cases_with_such_pairs_ours": 60,
+    "cases_with_such_pairs_gcc": 0
+  },
+  "temporary_full_output": "/tmp/syc-rv64-gcc-o3-asm-final-20260814"
+}

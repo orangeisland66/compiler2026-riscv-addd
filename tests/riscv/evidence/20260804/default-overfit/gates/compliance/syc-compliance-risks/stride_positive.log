@@ -1,0 +1,32 @@
+[loop-unroll] loop header=loop.while.cond2 phase=full reject=not-canonical
+[loop-unroll] loop header=loop.while.cond2 phase=cfg-full reject=not-canonical
+[loop-unroll] loop header=loop.while.cond2 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] loop header=loop.while.cond2 phase=full reject=not-canonical
+[loop-unroll] loop header=loop.while.cond2 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.while.cond2 phase=full accept factor=32 cost=192
+[loop-unroll] main header=main.inline_loop7 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop7 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop7 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop12 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop12 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop12 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p117 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p117 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p117 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p122 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p122 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p122 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop27 phase=full accept factor=2 cost=10
+[loop-unroll] main header=main.inline_loop7 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop7 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop12 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop12 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p117 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p117 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p122 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p122 phase=cfg-full reject=not-canonical
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=full reject=not-canonical
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=cfg-full reject=not-canonical
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=full reject=not-canonical
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=cfg-full reject=not-canonical

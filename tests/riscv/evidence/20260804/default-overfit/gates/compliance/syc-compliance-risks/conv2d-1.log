@@ -1,0 +1,212 @@
+[stage-fusion] map-detail header=get_random.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=get_random.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=init_matrix.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond8 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=init_matrix.while.cond8 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond11 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=init_matrix.while.cond11 reason=map-loop
+[stage-fusion] map-detail header=main.inline_init_kernel4 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=main.inline_init_kernel4 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d9 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d9 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d12 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d12 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d15 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d15 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d18 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d18 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d21 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d21 reason=map-loop
+[stage-fusion] func=main root=Out map=main.inline_nonlinear28
+[stage-fusion] reject header=get_random.while.cond2 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond2 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond8 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond11 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_init_kernel4 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_conv2d9 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d12 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d15 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d18 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d21 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_nonlinear28 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_row_reduce33 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_row_reduce36 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_row_reduce39 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_checksum44 reason=row-broadcast-min-shape
+[stencil-interior] reject func=get_random header=get_random.while.cond2 reason=latch-store
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond8 reason=store-phi
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond11 reason=store-phi
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond2 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_init_kernel4 reason=store-phi
+[stencil-interior] reject func=main header=main.inline_nonlinear28 reason=store-phi
+[stencil-interior] reject func=main header=main.inline_row_reduce36 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_row_reduce39 reason=store-phi
+[stencil-interior] reject func=main header=main.inline_checksum44 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d21 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d18 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_row_reduce33 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d15 reason=store-phi
+[stencil-interior] reject func=main header=main.inline_conv2d12 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d9 reason=latch-store
+[stage-fusion] map-detail header=get_random.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=get_random.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=init_matrix.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond8 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=init_matrix.while.cond8 reason=map-loop
+[stage-fusion] reject header=init_matrix.while.cond11 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d9 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d9 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d12 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d12 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d15 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d15 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d18 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d18 reason=map-loop
+[stage-fusion] reject header=main.inline_nonlinear28 reason=map-loop
+[stage-fusion] map-detail header=main.inline_row_reduce33 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_row_reduce33 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce36 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce39 reason=map-loop
+[stage-fusion] map-store header=main.inline_checksum44 missing=1
+[stage-fusion] reject header=main.inline_checksum44 reason=map-loop
+[stage-fusion] reject header=main.tile.header48 reason=map-loop
+[stage-fusion] reject header=get_random.while.cond2 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond2 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond8 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond11 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_conv2d9 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d12 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d15 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d18 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_nonlinear28 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_row_reduce33 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_row_reduce36 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_row_reduce39 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_checksum44 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.tile.header48 reason=row-broadcast-row-loop
+[stencil-interior] reject func=get_random header=get_random.while.cond2 reason=latch-store
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond8 reason=store-phi
+[stencil-interior] loop-detail func=init_matrix header=init_matrix.while.cond11 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond11 reason=loop-shape
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond2 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_nonlinear28 reason=row-base
+[stencil-interior] reject func=main header=main.inline_checksum44 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.inline_row_reduce36 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.inline_row_reduce36 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.inline_row_reduce39 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.inline_row_reduce39 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.tile.header48 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.tile.header48 reason=loop-shape
+[stencil-interior] reject func=main header=main.inline_conv2d18 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d15 reason=store-phi
+[stencil-interior] reject func=main header=main.inline_conv2d12 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_row_reduce33 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d9 reason=latch-store
+[stage-fusion] map-detail header=get_random.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=get_random.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=init_matrix.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond8 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=init_matrix.while.cond8 reason=map-loop
+[stage-fusion] reject header=init_matrix.while.cond11 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d9 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d9 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d12 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d12 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d15 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d15 reason=map-loop
+[stage-fusion] reject header=main.inline_nonlinear28 reason=no-row-loop
+[stage-fusion] map-detail header=main.inline_row_reduce33 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_row_reduce33 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce36 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce39 reason=map-loop
+[stage-fusion] map-store header=main.inline_checksum44 missing=1
+[stage-fusion] reject header=main.inline_checksum44 reason=map-loop
+[stage-fusion] reject header=main.tile.header48 reason=map-loop
+[stage-fusion] reject header=get_random.while.cond2 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond2 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond8 reason=row-broadcast-min-shape
+[stage-fusion] reject header=init_matrix.while.cond11 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_conv2d9 reason=row-broadcast-min-loop
+[stage-fusion] reject header=main.inline_conv2d12 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_conv2d15 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_nonlinear28 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_row_reduce33 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.inline_row_reduce36 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_row_reduce39 reason=row-broadcast-row-loop
+[stage-fusion] reject header=main.inline_checksum44 reason=row-broadcast-min-shape
+[stage-fusion] reject header=main.tile.header48 reason=row-broadcast-row-loop
+[stencil-interior] reject func=get_random header=get_random.while.cond2 reason=latch-store
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond8 reason=store-phi
+[stencil-interior] loop-detail func=init_matrix header=init_matrix.while.cond11 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond11 reason=loop-shape
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond2 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_nonlinear28 reason=row-base
+[stencil-interior] reject func=main header=main.inline_checksum44 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.inline_row_reduce36 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.inline_row_reduce36 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.inline_row_reduce39 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.inline_row_reduce39 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.tile.header48 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.tile.header48 reason=loop-shape
+[stencil-interior] reject func=main header=main.inline_row_reduce33 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d15 reason=store-phi
+[stencil-interior] reject func=main header=main.inline_conv2d12 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_conv2d9 reason=latch-store
+[stage-fusion] map-detail header=get_random.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=get_random.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=init_matrix.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond8 square=0 forward=1 init0=1 singleExit=1 bodyLatch=1
+[stage-fusion] reject header=init_matrix.while.cond8 reason=map-loop
+[stage-fusion] reject header=init_matrix.while.cond11 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d9 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d9 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d12 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d12 reason=map-loop
+[stage-fusion] reject header=main.inline_conv2d15 reason=map-loop
+[stage-fusion] reject header=main.inline_nonlinear28 reason=no-row-loop
+[stage-fusion] map-detail header=main.inline_row_reduce33 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_row_reduce33 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce36 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce39 reason=map-loop
+[stage-fusion] map-store header=main.inline_checksum44 missing=1
+[stage-fusion] reject header=main.inline_checksum44 reason=map-loop
+[stage-fusion] reject header=main.tile.header48 reason=map-loop
+[stage-fusion] reject header=get_random.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond2 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=init_matrix.while.cond2 reason=map-loop
+[stage-fusion] map-detail header=init_matrix.while.cond8 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=init_matrix.while.cond8 reason=map-loop
+[stage-fusion] reject header=init_matrix.while.cond11 reason=map-loop
+[stage-fusion] reject header=init_matrix.inline_get_random22 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d9 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d9 reason=map-loop
+[stage-fusion] map-detail header=main.inline_conv2d12 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_conv2d12 reason=map-loop
+[stage-fusion] reject header=main.inline_conv2d15 reason=map-loop
+[stage-fusion] reject header=main.inline_nonlinear28 reason=no-row-loop
+[stage-fusion] map-detail header=main.inline_row_reduce33 square=0 forward=1 init0=1 singleExit=1 bodyLatch=0
+[stage-fusion] reject header=main.inline_row_reduce33 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce36 reason=map-loop
+[stage-fusion] reject header=main.inline_row_reduce39 reason=map-loop
+[stage-fusion] map-store header=main.inline_checksum44 missing=1
+[stage-fusion] reject header=main.inline_checksum44 reason=map-loop
+[stage-fusion] reject header=main.tile.header48 reason=map-loop
+[stencil-interior] reject func=init_matrix header=init_matrix.inline_get_random22 reason=latch-store
+[stencil-interior] loop-detail func=init_matrix header=init_matrix.while.cond11 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond11 reason=loop-shape
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond8 reason=row-base
+[stencil-interior] reject func=init_matrix header=init_matrix.while.cond2 reason=latch-store
+[stencil-interior] reject func=main header=main.inline_nonlinear28 reason=row-base
+[stencil-interior] reject func=main header=main.inline_checksum44 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.inline_row_reduce36 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.inline_row_reduce36 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.inline_row_reduce39 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.inline_row_reduce39 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.tile.header48 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.tile.header48 reason=loop-shape
+[stencil-interior] reject func=main header=main.inline_row_reduce33 reason=latch-store
+[stencil-interior] func=main header=main.inline_conv2d15 taps=17 producerMap=1

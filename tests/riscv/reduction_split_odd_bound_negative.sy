@@ -1,0 +1,36 @@
+int left_matrix[32][32];
+int right_matrix[32][32];
+int output_matrix[32][32];
+
+int main() {
+  int row = 0;
+  while (row < 32) {
+    int column = 0;
+    while (column < 32) {
+      left_matrix[row][column] = row + column + 1;
+      right_matrix[row][column] = row - column;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+
+  row = 0;
+  while (row < 32) {
+    int column = 0;
+    while (column < 32) {
+      int inner = 0;
+      int sum = 0;
+      while (inner < 31) {
+        sum = sum + left_matrix[row][inner] * right_matrix[inner][column];
+        inner = inner + 1;
+      }
+      output_matrix[row][column] = sum;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+
+  putint(output_matrix[3][5]);
+  putch(10);
+  return 0;
+}

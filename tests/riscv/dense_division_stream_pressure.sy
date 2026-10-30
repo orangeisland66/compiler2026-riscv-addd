@@ -1,0 +1,40 @@
+// 额外输入流提高每次迭代的活跃值数量，用于检查成本模型保持较小代码体积。
+int source0[64];
+int source1[64];
+int source2[64];
+int source3[64];
+int source4[64];
+int source5[64];
+int source6[64];
+int source7[64];
+int result[64];
+
+int main() {
+    int count = getint();
+    int divisor = getint();
+    int index = 0;
+    while (index < count) {
+        source0[index] = index + 1;
+        source1[index] = index + 2;
+        source2[index] = index + 3;
+        source3[index] = index + 4;
+        source4[index] = index + 5;
+        source5[index] = index + 6;
+        source6[index] = index + 7;
+        source7[index] = index + 8;
+        index = index + 1;
+    }
+
+    index = 1;
+    while (index < count - 1) {
+        result[index] = (source0[index] + source1[index] + source2[index] +
+                         source3[index] + source4[index] + source5[index] +
+                         source6[index] + source7[index]) / divisor;
+        index = index + 1;
+    }
+    putint(result[1]);
+    putch(32);
+    putint(result[count - 2]);
+    putch(10);
+    return 0;
+}

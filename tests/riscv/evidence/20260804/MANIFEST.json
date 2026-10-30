@@ -1,0 +1,28 @@
+{
+  "purpose": "RISC-V 汇编与 QEMU 回归证据归档",
+  "source_snapshot": "afb385f",
+  "functional": {
+    "total": 140,
+    "correct": 140,
+    "summary": "p2/suite-functional-final/summary.json",
+    "cases": "p2/suite-functional-final/cases.csv"
+  },
+  "performance": {
+    "total": 60,
+    "correct": 60,
+    "summary": "p2/suite-performance-final/summary.json",
+    "cases": "p2/suite-performance-final/cases.csv"
+  },
+  "groups": {
+    "p2": "四项 P2 整改、strict 全开、功能/性能套件及重点变体的汇编、日志和输出",
+    "default-overfit": "默认路径审计的汇总、触发矩阵、变体、trace 和 default/skip 汇编对照"
+  },
+  "included_extensions": [
+    ".s", ".log", ".out", ".stdout", ".stderr", ".csv", ".json", ".txt", ".sy", ".expected"
+  ],
+  "excluded": [
+    "构建目录",
+    "ELF、目标文件和静态库等可再生二进制",
+    "审计报告 Markdown"
+  ]
+}

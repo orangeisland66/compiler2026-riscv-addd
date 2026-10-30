@@ -1,0 +1,23 @@
+int walk_state(int depth, int acc, int context[], int hint) {
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  return walk_state(depth - 1, acc + 1, context, hint);
+}
+
+int main() {
+  int context[4];
+  int depth;
+  int acc;
+  int i = 0;
+  while (i < 4) {
+    context[i] = i + 3;
+    i = i + 1;
+  }
+  depth = getint();
+  acc = getint();
+  putint(walk_state(depth, acc, context, 17));
+  putch(10);
+  return 0;
+}

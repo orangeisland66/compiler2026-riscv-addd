@@ -1,0 +1,23 @@
+// 验证循环内调用仍能读取每轮写回的全局标量。
+int visible_total;
+
+int read_visible_total(int depth) {
+  if (depth <= 0) {
+    return visible_total;
+  }
+  return read_visible_total(depth - 1);
+}
+
+int main() {
+  int n = getint();
+  int depth = getint();
+  int sum = 0;
+  int i = 0;
+  while (i < n) {
+    visible_total = visible_total + 1;
+    sum = sum + read_visible_total(depth);
+    i = i + 1;
+  }
+  putint(sum);
+  return 0;
+}

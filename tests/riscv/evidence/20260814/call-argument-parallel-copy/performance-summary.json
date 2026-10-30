@@ -1,0 +1,82 @@
+{
+  "date": "2026-08-14",
+  "method": {
+    "suite": "/home/orangeisland66/下载/设计文档/2026初赛RISCV赛道性能用例/performance",
+    "public_cli": "compiler -S -O1 -o",
+    "runner": "tests/run_performance.py --opt --runs 1 --jobs 1",
+    "case_count": 60,
+    "baseline_then_candidate_runs": 1,
+    "candidate_then_baseline_runs": 1,
+    "note": "两次结果是顺序相反的独立单轮样本，不作为 median 或稳定性统计"
+  },
+  "artifacts": {
+    "baseline_compiler_sha256": "b2c47e227b1beb1ad1f639bc7c6f7dd9406f81ce493524726cdf888a4c23c4da",
+    "candidate_compiler_sha256": "ecd009b38ec4e6228fb07306233dd6ef9a806e3144590981a453bd74af05681b",
+    "runtime_sha256": "7f5b21a016eb4525b775bd99bffdf15aaf026dcc6736c076f64beb09a0529cab",
+    "baseline_ref": "pre-call-argument-parallel-copy build-plan-research/compiler",
+    "candidate_ref": "master-new@0f18dc6e22872e1277dd42780a45de8a4015f123 with working-tree change"
+  },
+  "forward_baseline_then_candidate": {
+    "baseline": {
+      "wall_s": 13.000,
+      "compile_ms": 2210.068,
+      "link_ms": 3764.010,
+      "run_ms": 6978.465,
+      "internal_timer_us": 1121000
+    },
+    "candidate": {
+      "wall_s": 13.314,
+      "compile_ms": 2206.403,
+      "link_ms": 3779.254,
+      "run_ms": 7282.782,
+      "internal_timer_us": 1137000
+    },
+    "candidate_delta_percent": {
+      "wall_s": 2.4154,
+      "compile_ms": -0.1658,
+      "link_ms": 0.4050,
+      "run_ms": 4.3608,
+      "internal_timer_us": 1.4273
+    }
+  },
+  "reverse_candidate_then_baseline": {
+    "candidate": {
+      "wall_s": 13.072,
+      "compile_ms": 2212.706,
+      "link_ms": 3691.371,
+      "run_ms": 7116.370,
+      "internal_timer_us": 1119000
+    },
+    "baseline": {
+      "wall_s": 13.186,
+      "compile_ms": 2297.533,
+      "link_ms": 3757.993,
+      "run_ms": 7085.130,
+      "internal_timer_us": 1149000
+    },
+    "candidate_delta_percent": {
+      "wall_s": -0.8646,
+      "compile_ms": -3.6921,
+      "link_ms": -1.7728,
+      "run_ms": 0.4409,
+      "internal_timer_us": -2.6110
+    }
+  },
+  "byte_identical_control": {
+    "case": "formal functional/00_main.sy",
+    "assembly_sha256": "269a3e8ff3c7902f7bd7ff3645dd2217fefbeff9db01a80fb207923e09cb63e7",
+    "forward_baseline_ms": 7.754,
+    "forward_candidate_ms": 8.109,
+    "forward_candidate_delta_percent": 4.5783,
+    "reverse_candidate_ms": 7.370,
+    "reverse_baseline_ms": 9.162,
+    "reverse_candidate_delta_percent": -19.5590
+  },
+  "interpretation": {
+    "total_run_ms_direction": "candidate slower in both orderings (+4.3608%, +0.4409%)",
+    "internal_timer_direction": "reversed between orderings (+1.4273%, -2.6110%)",
+    "control_direction": "reversed with large startup/environment noise (+4.5783%, -19.5590%)",
+    "family_direction_consistency": "8/20 families consistent; 12/20 reversed",
+    "conclusion": "两次单轮反向 A/B 未证明稳定动态收益，也不足以判定稳定回退；静态指令与栈访存减少结论仍成立"
+  }
+}

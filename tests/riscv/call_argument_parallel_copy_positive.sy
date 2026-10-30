@@ -1,0 +1,10 @@
+// 正例：两个普通寄存器实参应直接通过 RV64 ABI parallel copy 进入 a0/a1，
+// 不得为了调用 putarray 建立临时栈槽。
+int values[2];
+
+int main() {
+  values[0] = 7;
+  values[1] = 9;
+  putarray(2, values);
+  return 0;
+}

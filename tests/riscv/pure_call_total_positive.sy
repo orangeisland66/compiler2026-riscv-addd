@@ -1,0 +1,21 @@
+int total_sum(int limit) {
+  int index = 0;
+  int sum = 0;
+  while (index < limit) {
+    sum = sum + index;
+    index = index + 1;
+  }
+  return sum;
+}
+
+int main() {
+  int index = 0;
+  int result = 0;
+  while (index < 8) {
+    result = total_sum(index);
+    index = index + 1;
+  }
+  putint(result);
+  putch(10);
+  return 0;
+}

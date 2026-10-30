@@ -1,0 +1,7 @@
+char global_text[4] = "abc";
+
+int main() {
+  char local_text[4] = "xyz";
+  printf("%s:%s\n", global_text, local_text);
+  return 0;
+}

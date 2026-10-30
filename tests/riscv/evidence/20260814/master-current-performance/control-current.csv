@@ -1,0 +1,2 @@
+case,family,status,compile_ms,link_ms,run_ms,run_samples_ms,internal_us,message
+functional/00_main.sy,00_main,PASS,1.973372000065865,57.165680000252905,8.934223000323982,8.934,,

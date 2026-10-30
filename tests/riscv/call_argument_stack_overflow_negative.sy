@@ -1,0 +1,15 @@
+// 近似负例：前八个整数实参使用 a0..a7，最后两个实参必须保留在调用方栈参数区。
+// 非尾递归使调用边保持可见，同时验证寄存器实参不因存在栈实参而全量暂存。
+int keep_ten(int a, int b, int c, int d, int e,
+             int f, int g, int h, int i, int j) {
+  if (a < 0)
+    return keep_ten(a + 1, b, c, d, e, f, g, h, i, j) + 1;
+  return a + b + c + d + e + f + g + h + i + j;
+}
+
+int main() {
+  int result = keep_ten(-2, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+  putint(result);
+  putch(10);
+  return 0;
+}

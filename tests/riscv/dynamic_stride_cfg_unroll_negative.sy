@@ -1,0 +1,33 @@
+// 动态步长 CFG 快路径保留内部无 side effect 的 diamond，
+// 同时保留原始 fallback 循环。
+int f(int x) {
+    if (x < 5) {
+        return x + 1;
+    } else {
+        return 10 - x;
+    }
+}
+
+int loop(int s, int t, int d) {
+    int sum = 0;
+    int x = s;
+    while (x < t) {
+        sum = sum + f(x);
+        x = x + d;
+    }
+    return sum;
+}
+
+int main() {
+    putint(loop(1, 8, 3));
+    putch(10);
+    putint(loop(2, 10, 4));
+    putch(10);
+    putint(loop(10, 1, 0));
+    putch(10);
+    putint(loop(10, 1, -1));
+    putch(10);
+    putint(loop(2147483646, 2147483647, 1));
+    putch(10);
+    return 0;
+}

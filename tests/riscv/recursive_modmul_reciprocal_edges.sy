@@ -1,0 +1,31 @@
+// 用接近内部模乘上界的常量模数检查宽乘积、倒数估商和余数修正。
+const int LARGE_MODULUS = 1073741823;
+
+int multiply_mod_edges(int left, int right) {
+  if (right == 0)
+    return 0;
+  if (right == 1)
+    return left % LARGE_MODULUS;
+  int half = multiply_mod_edges(left, right / 2);
+  int doubled = (half + half) % LARGE_MODULUS;
+  if (right % 2 == 1)
+    return (doubled + left) % LARGE_MODULUS;
+  return doubled;
+}
+
+int main() {
+  putint(multiply_mod_edges(1073741822, 2147483647));
+  putch(10);
+  putint(multiply_mod_edges(1073741822, 2147483646));
+  putch(10);
+  putint(multiply_mod_edges(17, 123456789));
+  putch(10);
+  putint(multiply_mod_edges(0, 2147483647));
+  putch(10);
+  // 超出快速路径输入范围的调用继续由原函数计算。
+  putint(multiply_mod_edges(1073741824, 31));
+  putch(10);
+  putint(multiply_mod_edges(-7, 19));
+  putch(10);
+  return 0;
+}

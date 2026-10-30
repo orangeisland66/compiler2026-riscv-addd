@@ -1,0 +1,6 @@
+int main() {
+  char c = (char)300;
+  int value = (int)c;
+  putint(value);
+  return 0;
+}

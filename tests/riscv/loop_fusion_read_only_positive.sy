@@ -1,0 +1,35 @@
+int fusion_first_a[4];
+int fusion_first_b[4];
+int fusion_second_a[4];
+int fusion_second_b[4];
+int fusion_anchor_a[128];
+int fusion_anchor_b[128];
+
+int fused_write_slots(int limit) {
+  int index = 0;
+  while (index < limit) {
+    fusion_first_a[0] = index;
+    fusion_first_b[0] = index + 1;
+    index = index + 1;
+  }
+  index = 0;
+  while (index < limit) {
+    fusion_second_a[0] = index * 2;
+    fusion_second_b[0] = index * 3;
+    index = index + 1;
+  }
+  return fusion_first_a[0] + fusion_first_b[0] +
+         fusion_second_a[0] + fusion_second_b[0];
+}
+
+int main() {
+  int anchor = 0;
+  while (anchor < 128) {
+    fusion_anchor_a[anchor] = anchor + 1;
+    fusion_anchor_b[anchor] = anchor + 2;
+    anchor = anchor + 1;
+  }
+  putint(fused_write_slots(64));
+  putch(10);
+  return 0;
+}

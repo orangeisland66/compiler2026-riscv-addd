@@ -1,0 +1,68 @@
+const int DIGITS = 8;
+const int DECIMAL = 10;
+
+int select_digit_side(int value, int position, int context) {
+  int level = 0;
+  int observed = getint();
+  while (level < position) {
+    value = value / DIGITS;
+    level = level + 1;
+  }
+  return value % DIGITS + observed;
+}
+
+void sort_side(int position, int values[], int begin, int end) {
+  int starts[DIGITS];
+  int limits[DIGITS];
+  int counts[DIGITS];
+  select_digit_side(values[begin], position, 0);
+  select_digit_side(values[begin], position, 0);
+  sort_side(position - 1, values, begin, end);
+}
+
+int select_digit_ok(int value, int position) {
+  int level = 0;
+  while (level < position) {
+    value = value / DIGITS;
+    level = level + 1;
+  }
+  return value % DIGITS;
+}
+
+void sort_multi(int position, int values[], int begin, int end) {
+  int starts[DIGITS];
+  int limits[DIGITS];
+  int counts[DIGITS];
+  select_digit_ok(values[begin], position);
+  select_digit_ok(values[begin], position);
+  sort_multi(position - 1, values, begin, end);
+  sort_multi(position - 1, values, begin, end);
+}
+
+void wrong_dimension(int position, int values[][DIGITS], int begin, int end) {
+  int starts[DIGITS];
+  int limits[DIGITS];
+  int counts[DIGITS];
+  return;
+}
+
+void wrong_context(int position, int values[], int begin, int end,
+                   float context) {
+  int starts[DIGITS];
+  int limits[DIGITS];
+  int counts[DIGITS];
+  return;
+}
+
+void non_power_radix(int position, int values[], int begin, int end) {
+  int starts[DECIMAL];
+  int limits[DECIMAL];
+  int counts[DECIMAL];
+  return;
+}
+
+int main() {
+  putint(0);
+  putch(10);
+  return 0;
+}

@@ -1,0 +1,15 @@
+int total_identity(int value) {
+  return value;
+}
+
+int main() {
+  int limit = getint();
+  int index = 0;
+  int result = 0;
+  while (index <= limit) {
+    result = total_identity(index);
+    index = index + 1;
+  }
+  putint(result);
+  return 0;
+}

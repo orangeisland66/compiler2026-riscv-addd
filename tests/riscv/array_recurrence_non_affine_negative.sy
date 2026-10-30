@@ -1,0 +1,21 @@
+int recurrence_samples[4096];
+
+int main() {
+  int cursor = 0;
+  while (cursor < 64) {
+    int index = cursor * cursor;
+    recurrence_samples[index] = cursor + 3;
+    cursor = cursor + 1;
+  }
+
+  int total = 0;
+  cursor = 0;
+  while (cursor < 64) {
+    int index = cursor * cursor;
+    total = total + recurrence_samples[index];
+    cursor = cursor + 1;
+  }
+  putint(total);
+  putch(10);
+  return 0;
+}

@@ -1,0 +1,30 @@
+// 覆盖非负整数范围判断的直接写法、交换写法和不满足合并条件的边界写法。
+int direct_range(int value) {
+    return (value >= 0) && (value < 17);
+}
+
+int reordered_range(int value) {
+    return (23 > value) && (0 <= value);
+}
+
+int open_lower_bound(int value) {
+    return (value > 0) && (value < 17);
+}
+
+int dynamic_upper_bound(int value, int bound) {
+    return (value >= 0) && (value < bound);
+}
+
+int main() {
+    int value = getint();
+    int bound = getint();
+    putint(direct_range(value));
+    putch(32);
+    putint(reordered_range(value));
+    putch(32);
+    putint(open_lower_bound(value));
+    putch(32);
+    putint(dynamic_upper_bound(value, bound));
+    putch(10);
+    return 0;
+}

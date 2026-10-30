@@ -1,0 +1,44 @@
+[mir-loop-addr] header=.main.bb4 phi r67 operands=5
+[mir-loop-addr] header=.main.bb4 phi r67 accept step=1
+[mir-loop-addr] header=.main.bb4 phi r66 operands=5
+[mir-loop-addr] header=.main.bb4 phi r66 skip=step-shape def=addw
+[mir-loop-symbol] function=main header=.main.bb4 symbol=samples uses=1 blocks=2 insts=12 nested=0
+[mir-loop-addr] function=main loops=2
+[mir-loop-addr] header=.main.bb1 phi r65 operands=5
+[mir-loop-addr] header=.main.bb1 phi r65 accept step=1
+[mir-loop-addr] header=.main.bb1 phi r64 operands=5
+[mir-loop-addr] header=.main.bb1 phi r64 accept step=4
+[mir-loop-addr] header=.main.bb1 first-invalid addr=r64 iv=r65 def=<phi>
+[mir-loop-addr]   use1=r68 def=la block=.main.bb0
+[mir-loop-addr]   use3=r72 def=addi block=.main.bb2
+r64 def=<phi> block=.main.bb1
+  r68 def=la block=.main.bb0
+  r72 def=addi block=.main.bb2
+    r64 cycle
+[mir-loop-addr] header=.main.bb1 ivs=2 mem=2 bad-shape=0 invalid=1 no-iv=0 empty-regs=1 addr-iv=0 zero-step=0 bad-imm=0 addr-out=0 chain-out=0 sig-fail=0 found=0
+[mir-loop-addr] function=main header=.main.bb1 no-plan
+[mir-loop-addr] header=.main.bb4 phi r67 operands=5
+[mir-loop-addr] header=.main.bb4 phi r67 accept step=1
+[mir-loop-addr] header=.main.bb4 phi r66 operands=5
+[mir-loop-addr] header=.main.bb4 phi r66 skip=step-shape def=addw
+[mir-loop-addr] header=.main.bb4 ivs=1 mem=1 bad-shape=0 invalid=0 no-iv=0 empty-regs=0 addr-iv=0 zero-step=0 bad-imm=0 addr-out=0 chain-out=0 sig-fail=0 found=1
+[mir-loop-addr] function=main header=.main.bb4 plan step=8 uses=1 members=1 cost=4
+[mir-loop-addr] header=.main.bb4 phi r67 operands=5
+[mir-loop-addr] header=.main.bb4 phi r67 accept step=1
+[mir-loop-addr] header=.main.bb4 phi r66 operands=5
+[mir-loop-addr] header=.main.bb4 phi r66 skip=step-shape def=addw
+[mir-loop-addr] header=.main.bb4 phi r90 operands=5
+[mir-loop-addr] header=.main.bb4 phi r90 accept step=8
+[mir-loop-addr] header=.main.bb4 first-invalid addr=r90 iv=r67 def=<phi>
+[mir-loop-addr]   use1=r86 def=add block=.main.bb3
+[mir-loop-addr]   use3=r91 def=addi block=.main.bb5
+r90 def=<phi> block=.main.bb4
+  r86 def=add block=.main.bb3
+    r85 def=la block=.main.bb3
+    r87 def=slliw block=.main.bb3
+      r88 def=addiw block=.main.bb3
+        r89 def=slliw block=.main.bb3
+  r91 def=addi block=.main.bb5
+    r90 cycle
+[mir-loop-addr] header=.main.bb4 ivs=2 mem=2 bad-shape=0 invalid=1 no-iv=0 empty-regs=1 addr-iv=0 zero-step=0 bad-imm=0 addr-out=0 chain-out=0 sig-fail=0 found=0
+[mir-loop-addr] function=main header=.main.bb4 no-plan

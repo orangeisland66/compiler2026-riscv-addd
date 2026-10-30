@@ -1,0 +1,18 @@
+void visit_values(int values[], int depth) {
+  if (depth <= 0)
+    return;
+  values[depth - 1] = depth;
+  visit_values(values, depth - 1);
+  return;
+}
+
+int values[16];
+
+int main() {
+  visit_values(values, 8);
+  putint(values[0]);
+  putch(10);
+  putint(values[7]);
+  putch(10);
+  return 0;
+}

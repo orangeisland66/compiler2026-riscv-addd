@@ -1,0 +1,29 @@
+float source_values[64];
+float target_values[64];
+
+int main() {
+  int count = getint();
+  float scale = getfloat();
+  int index = 0;
+  while (index < count) {
+    source_values[index] = getfloat();
+    target_values[index] = getfloat();
+    index = index + 1;
+  }
+
+  index = 0;
+  while (index < count) {
+    target_values[index] =
+        target_values[index] - scale * source_values[index];
+    index = index + 1;
+  }
+
+  float sum = 0.0;
+  index = 0;
+  while (index < count) {
+    sum = sum + target_values[index];
+    index = index + 1;
+  }
+  putfloat(sum);
+  return 0;
+}

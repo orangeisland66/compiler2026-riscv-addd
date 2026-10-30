@@ -1,0 +1,28 @@
+int N;
+int W;
+int weight[8];
+int value[8];
+
+int knapsack_mixed(int i, int w) {
+    if (i == 0 || w == 0) return 0;
+    if (weight[i - 1] > w) {
+        return knapsack_mixed(i - 1, w);
+    }
+    int without_item = knapsack_mixed(i - 1, w);
+    int with_item = value[i - 1] +
+                    knapsack_mixed(i - 1, w - weight[i - 1]);
+    if (with_item > without_item) return with_item;
+    return without_item;
+}
+
+int main() {
+    N = getint();
+    W = getint();
+    getarray(weight);
+    getarray(value);
+    starttime();
+    putint(knapsack_mixed(N, W));
+    stoptime();
+    putch(10);
+    return 0;
+}

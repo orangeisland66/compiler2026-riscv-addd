@@ -1,0 +1,6 @@
+pattern	class	strict_behavior	research_behavior
+*TRACE*/*DUMP*/*VERIFY*/*PROFILE*/*REPORT*/*VERBOSE*/*LOG*	OBSERVABILITY	read-only	read-only
+SYC_ENABLE_*	SEMANTIC_ENABLE	ignored	requires SYC_RESEARCH=1 and true value
+SYC_SKIP_*/MIR_NO_*	ROLLBACK	ignored	requires SYC_RESEARCH=1
+*DISABLE*/MIR_SIMPLE_RA	ROLLBACK	ignored	requires SYC_RESEARCH=1
+otherwise	UNKNOWN_SEMANTIC	ignored	requires SYC_RESEARCH=1

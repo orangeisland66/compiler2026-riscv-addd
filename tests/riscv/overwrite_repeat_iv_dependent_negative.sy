@@ -1,0 +1,19 @@
+// 负例：每轮写入依赖外层迭代值，不能只保留第一轮。
+int overwritten_values[4];
+
+int main() {
+  int round = 0;
+  int checksum = 0;
+  while (round < 3) {
+    int index = 0;
+    while (index < 4) {
+      overwritten_values[index] = index + round;
+      index = index + 1;
+    }
+    checksum = checksum + overwritten_values[0];
+    round = round + 1;
+  }
+  putint(checksum);
+  putch(10);
+  return 0;
+}

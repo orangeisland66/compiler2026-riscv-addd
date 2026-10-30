@@ -1,0 +1,28 @@
+int side_state;
+int left[32][32];
+int right[32][32];
+int output[32][32];
+
+int main() {
+  int i = 0;
+  while (i < 32) {
+    int j = 0;
+    while (j < 32) {
+      int k = 0;
+      int sum = 0;
+      while (k < 32) {
+        if (left[i][k] % 2 == 0) {
+          side_state = side_state + k;
+          sum = sum + left[i][k] * right[k][j];
+        }
+        k = k + 1;
+      }
+      output[i][j] = sum;
+      j = j + 1;
+    }
+    i = i + 1;
+  }
+  putint(side_state);
+  putch(10);
+  return 0;
+}

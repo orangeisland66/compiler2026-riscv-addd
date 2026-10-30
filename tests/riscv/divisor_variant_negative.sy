@@ -1,0 +1,17 @@
+// 负例：除数在循环中更新，不是循环不变量。
+int divisor_values[8];
+
+int main() {
+  int divisor = getint();
+  int count = getarray(divisor_values);
+  int index = 0;
+  int checksum = 0;
+  while (index < count) {
+    divisor = divisor + 1;
+    checksum = checksum + divisor_values[index] / divisor;
+    index = index + 1;
+  }
+  putint(checksum);
+  putch(10);
+  return 0;
+}

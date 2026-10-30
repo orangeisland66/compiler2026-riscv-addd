@@ -1,0 +1,84 @@
+const int SIDE = 6;
+
+void advance_rows_two(int width, int factor[][SIDE], int input[][SIDE],
+                      int output[][SIDE], int hint) {
+  int column;
+  int reduction;
+  int row;
+  row = 0;
+  column = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      output[row][column] = 0;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  column = 0;
+  reduction = 0;
+  while (reduction < width) {
+    row = 0;
+    while (row < width) {
+      if (factor[row][reduction] == 1) {
+        row = row + 1;
+        continue;
+      }
+      column = 0;
+      while (column < width) {
+        output[row][column] = output[row][column] *
+                              factor[row][reduction] +
+                              input[reduction][column];
+        column = column + 1;
+      }
+      row = row + 1;
+    }
+    reduction = reduction + 1;
+  }
+}
+
+int run_two() {
+  int width;
+  int factor[SIDE][SIDE];
+  int data[SIDE][SIDE];
+  int scratch[SIDE][SIDE];
+  int row;
+  int column;
+  int round;
+  int answer = 0;
+  width = 4;
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      factor[row][column] = (row * 3 + column * 5) % 4 + 1;
+      data[row][column] = row * 11 - column * 7 + 3;
+      scratch[row][column] = 0;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  round = 0;
+  while (round < 1) {
+    advance_rows_two(width, factor, data, scratch, round + 1);
+    advance_rows_two(width, factor, scratch, data, round + 2);
+    round = round + 1;
+  }
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      answer = answer + data[row][column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return answer;
+}
+
+int main() {
+  putint(run_two());
+  putch(10);
+  return 0;
+}

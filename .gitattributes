@@ -1,0 +1,28 @@
+# Normalize line endings for all text files
+* text=auto
+
+# Source files: LF
+*.cpp text eol=lf
+*.h text eol=lf
+*.c text eol=lf
+
+# Build/config files: LF
+CMakeLists.txt text eol=lf
+.gitignore text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+
+# Test data & SysY sources: force LF. These feed getch()/getchar() based
+# programs at runtime, where a stray CR (0x0D) is read as a real character
+# and corrupts tokenization (e.g. 69_expr_eval, 74_kmp, 36_rotate). The
+# reference .out files are generated from LF input, so LF is authoritative.
+*.in text eol=lf
+*.out text eol=lf
+*.sy text eol=lf
+
+# Windows batch files: CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 生成的 PDF 是二进制文档，不对其内部对象执行文本换行规范化或逐行空白检查。
+*.pdf binary

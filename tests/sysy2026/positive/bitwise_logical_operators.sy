@@ -1,0 +1,24 @@
+int main() {
+  const int mask = ~0 & 15;
+  int left = 12;
+  int right = 10;
+  putint(left & right);
+  putch(10);
+  putint(left | right);
+  putch(10);
+  putint(left ^ right);
+  putch(10);
+  putint(~left);
+  putch(10);
+  putint(!left);
+  putch(10);
+  putint(!0);
+  putch(10);
+  putint(1 | 2 ^ 3 & 1);
+  putch(10);
+  putint(1 == 1 & 3 == 3);
+  putch(10);
+  putint(mask);
+  putch(10);
+  return 0;
+}

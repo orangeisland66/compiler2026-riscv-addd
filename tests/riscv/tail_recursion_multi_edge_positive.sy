@@ -1,0 +1,13 @@
+int walk_edges(int depth, int acc) {
+  if (depth <= 0)
+    return acc;
+  if (depth % 2 == 0)
+    return walk_edges(depth - 1, acc + 1);
+  return walk_edges(depth - 2, acc + 2);
+}
+
+int main() {
+  putint(walk_edges(19, 3));
+  putch(10);
+  return 0;
+}

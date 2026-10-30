@@ -1,0 +1,73 @@
+int signed_and(int left, int right) {
+  int result = 0;
+  int power = 1;
+  int length = 32;
+  while (length != 0) {
+    if ((left % 2 == 1) && (right % 2 == 1))
+      result = result + power;
+    left = left / 2;
+    right = right / 2;
+    power = power * 2;
+    length = length - 1;
+  }
+  return result;
+}
+
+int signed_or(int left, int right) {
+  int result = 0;
+  int power = 1;
+  int length = 32;
+  while (length != 0) {
+    if ((left % 2 == 1) || (right % 2 == 1))
+      result = result + power;
+    left = left / 2;
+    right = right / 2;
+    power = power * 2;
+    length = length - 1;
+  }
+  return result;
+}
+
+int signed_xor(int left, int right) {
+  int result = 0;
+  int power = 1;
+  int length = 32;
+  while (length != 0) {
+    if (left % 2 != right % 2)
+      result = result + power;
+    left = left / 2;
+    right = right / 2;
+    power = power * 2;
+    length = length - 1;
+  }
+  return result;
+}
+
+int signed_parity(int value) {
+  int result = 0;
+  if (value % 2 == 1)
+    result = result + 1;
+  if (value % 2 != 1)
+    result = result + 2;
+  if (value % 2 == 0)
+    result = result + 4;
+  if (value % 2 != 0)
+    result = result + 8;
+  return result;
+}
+
+int main() {
+  int left = getint();
+  int right = getint();
+  putint(signed_and(left, right));
+  putch(10);
+  putint(signed_or(left, right));
+  putch(10);
+  putint(signed_xor(left, right));
+  putch(10);
+  putint(signed_parity(left));
+  putch(10);
+  putint(signed_parity(right));
+  putch(10);
+  return 0;
+}

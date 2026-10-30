@@ -1,0 +1,20 @@
+// 负例：循环体含调用时不跨调用递推地址状态，防止忽略寄存器和内存破坏。
+int address_samples_with_call[256];
+
+int main() {
+  int cursor = 0;
+  while (cursor < 256) {
+    address_samples_with_call[cursor] = cursor + 3;
+    cursor = cursor + 1;
+  }
+  int total = 0;
+  cursor = 0;
+  while (cursor < 64) {
+    total = total + address_samples_with_call[cursor * 2 + 1];
+    putch(0);
+    cursor = cursor + 1;
+  }
+  putint(total);
+  putch(10);
+  return 0;
+}

@@ -1,0 +1,59 @@
+// 正例：逐行最小值广播、转置取负和完整 checksum 可合并为标量摘要。
+const int BROADCAST_SIZE = 8;
+const int BROADCAST_MAX = 2147483647;
+int broadcast_matrix[BROADCAST_SIZE][BROADCAST_SIZE];
+
+int main() {
+  int guard = getint();
+  if (guard < 0) {
+    return guard;
+  }
+  int row = 0;
+  while (row < BROADCAST_SIZE) {
+    int column = 0;
+    while (column < BROADCAST_SIZE) {
+      broadcast_matrix[row][column] = (row + 1) * 11 - column * 3;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  while (row < BROADCAST_SIZE) {
+    int column = 0;
+    int row_minimum = BROADCAST_MAX;
+    while (column < BROADCAST_SIZE) {
+      if (broadcast_matrix[row][column] < row_minimum) {
+        row_minimum = broadcast_matrix[row][column];
+      }
+      column = column + 1;
+    }
+    column = 0;
+    while (column < BROADCAST_SIZE) {
+      broadcast_matrix[row][column] = row_minimum;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  while (row < BROADCAST_SIZE) {
+    int column = 0;
+    while (column < BROADCAST_SIZE) {
+      broadcast_matrix[row][column] = -broadcast_matrix[column][row];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  int checksum = 0;
+  row = 0;
+  while (row < BROADCAST_SIZE) {
+    int column = 0;
+    while (column < BROADCAST_SIZE) {
+      checksum = checksum + broadcast_matrix[row][column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  putint(checksum);
+  putch(10);
+  return 0;
+}

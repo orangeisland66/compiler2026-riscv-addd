@@ -1,0 +1,25 @@
+// 动态短循环连续更新数组元素，用于检查含访存循环仍采用原有展开路径。
+int values[128];
+
+void update_values(int count) {
+    int index = 0;
+    while (index < count) {
+        values[index] = values[index] + 3;
+        index = index + 1;
+    }
+}
+
+int main() {
+    int count = getint();
+    int index = 0;
+    while (index < count) {
+        values[index] = index;
+        index = index + 1;
+    }
+    update_values(count);
+    putint(values[0]);
+    putch(32);
+    putint(values[count - 1]);
+    putch(10);
+    return 0;
+}

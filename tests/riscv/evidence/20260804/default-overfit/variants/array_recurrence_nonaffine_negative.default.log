@@ -1,0 +1,8 @@
+[array_recurrence] inspect func=main header=main.while.cond2 blocks=2 latches=1
+    [scan] gep=gep id=30 iv=cursor.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=mul/ rhs=leaf/ci
+        [lhs-mul] a=phi/cursor.addr.phi b=phi/cursor.addr.phi
+[array_recurrence] inspect func=main header=main.while.cond5 blocks=2 latches=1
+    [scan] gep=gep id=57 iv=cursor.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=mul/ rhs=leaf/ci
+        [lhs-mul] a=phi/cursor.addr.phi b=phi/cursor.addr.phi

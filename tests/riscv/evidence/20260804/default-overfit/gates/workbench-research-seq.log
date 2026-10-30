@@ -1,0 +1,31 @@
+=== [1/3] build ===
+  build OK
+=== [2/3] compliance ===
+  bit_accumulator_tests.sh
+bit accumulator compliance: PASS
+  compliance_recursive_memo_side_effect_negative.sh
+compliance_recursive_memo_side_effect_negative OK
+  compliance_recursive_memo_state.sh
+compliance_recursive_memo_state OK
+  recursive_modmul_tests.sh
+recursive modmul compliance: PASS
+  dead_function_elimination_tests.sh
+dead function elimination compliance: PASS
+  generalized_stage2_transform_tests.sh
+generalized_cross_summary PASS: [ast-array-summary] function=run_summary_case callee=advance_rows calls-per-round=4 args=4
+generalized_demand_copy PASS: [ast-demand-copy] function=run_demand_case transform=reshape_lower_triangle array=storage args=3
+generalized_reflective_range PASS: [ast-reflective-max-simplify] function=reflect_value param=value constant=1000000
+generalized_radix_base8 PASS: [ast-radix] function=sort_by_digits capacity=64 args=4
+  generic_platform_opt_tests.sh
+generic platform optimizations compliance: PASS
+  pow2_digit_tests.sh
+pow2 digit compliance: PASS
+  recursive_memo_fixed_state_tests.sh
+recursive fixed-state memo compliance: PASS
+  row_locality_suffix_tests.sh
+row locality suffix boundary compliance: PASS
+  runtime_invariant_divisor_tests.sh
+runtime invariant divisor compliance: PASS
+  store_to_load_forward_tests.sh
+store_to_load_forward_tests.sh PASS
+=== verify OK ===

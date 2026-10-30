@@ -1,0 +1,25 @@
+// 负例：每轮增量依赖旧累加器，不能用首轮增量乘以迭代次数代替整个循环。
+int repeated_source[4];
+
+int main() {
+  int source_index = 0;
+  while (source_index < 4) {
+    repeated_source[source_index] = getint();
+    source_index = source_index + 1;
+  }
+  int accumulator = 1;
+  int round = 0;
+  while (round < 5) {
+    if (accumulator > 0) {
+      accumulator =
+          accumulator * 2 + repeated_source[accumulator % 4];
+    } else {
+      accumulator =
+          accumulator * 3 + repeated_source[accumulator % 4];
+    }
+    round = round + 1;
+  }
+  putint(accumulator);
+  putch(10);
+  return 0;
+}

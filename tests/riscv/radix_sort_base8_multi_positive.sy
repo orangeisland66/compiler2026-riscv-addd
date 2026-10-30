@@ -1,0 +1,87 @@
+const int RADIX = 8;
+
+int digit_select8(int value, int position, int context, int tag) {
+  int level = 0;
+  while (level < position) {
+    value = value / RADIX;
+    level = level + 1;
+  }
+  return value % RADIX;
+}
+
+void sort_values8(int position, int values[], int begin, int end,
+                  int context, int tag) {
+  int starts[RADIX] = {};
+  int limits[RADIX] = {};
+  int counts[RADIX] = {};
+  if (position == -1 || begin + 1 >= end)
+    return;
+
+  int cursor = begin;
+  while (cursor < end) {
+    counts[digit_select8(values[cursor], position, 0, 0)] =
+        counts[digit_select8(values[cursor], position, 0, 0)] + 1;
+    cursor = cursor + 1;
+  }
+  starts[0] = begin;
+  limits[0] = begin + counts[0];
+  cursor = 1;
+  while (cursor < RADIX) {
+    starts[cursor] = limits[cursor - 1];
+    limits[cursor] = starts[cursor] + counts[cursor];
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < RADIX) {
+    while (starts[cursor] < limits[cursor]) {
+      int value = values[starts[cursor]];
+      while (digit_select8(value, position, 0, 0) != cursor) {
+        int temporary = value;
+        value = values[starts[digit_select8(temporary, position, 0, 0)]];
+        values[starts[digit_select8(temporary, position, 0, 0)]] =
+            temporary;
+        starts[digit_select8(temporary, position, 0, 0)] =
+            starts[digit_select8(temporary, position, 0, 0)] + 1;
+      }
+      values[starts[cursor]] = value;
+      starts[cursor] = starts[cursor] + 1;
+    }
+    cursor = cursor + 1;
+  }
+
+  cursor = 0;
+  starts[0] = begin;
+  limits[0] = begin + counts[0];
+  while (cursor < RADIX) {
+    if (cursor > 0) {
+      starts[cursor] = limits[cursor - 1];
+      limits[cursor] = starts[cursor] + counts[cursor];
+    }
+    sort_values8(position - 1, values, starts[cursor], limits[cursor],
+                 0, 0);
+    cursor = cursor + 1;
+  }
+}
+
+int values8[128];
+
+int main() {
+  int cursor = 0;
+  while (cursor < 64) {
+    values8[cursor] = (cursor * 197 + 53) % 4096;
+    cursor = cursor + 1;
+  }
+  sort_values8(3, values8, 0, 64, 11, 17);
+  sort_values8(3, values8, 0, 64, 12, 18);
+  sort_values8(3, values8, 0, 64, 13, 19);
+  sort_values8(3, values8, 0, 64, 14, 20);
+  sort_values8(3, values8, 0, 64, 15, 21);
+  sort_values8(3, values8, 0, 64, 16, 22);
+  putint(values8[0]);
+  putch(10);
+  putint(values8[32]);
+  putch(10);
+  putint(values8[63]);
+  putch(10);
+  return 0;
+}

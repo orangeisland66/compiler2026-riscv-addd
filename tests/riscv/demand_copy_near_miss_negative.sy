@@ -1,0 +1,175 @@
+int storage[128];
+
+int reshape_lower_triangle(int count, int values[], int row_width, int hint) {
+  int column_width = count / row_width;
+  int outer = 0;
+  int inner = 0;
+  while (outer < column_width) {
+    inner = 0;
+    while (inner < row_width) {
+      if (outer < inner) {
+        inner = inner + 1;
+        continue;
+      }
+      int saved = values[outer * row_width + inner];
+      values[inner * column_width + outer] =
+          values[outer * row_width + inner];
+      values[outer * row_width + inner] = saved;
+      inner = inner + 1;
+    }
+    outer = outer + 1;
+  }
+  return -7;
+}
+
+int reshape_non_triangle(int count, int values[], int row_width) {
+  int column_width = count / row_width;
+  int outer = 0;
+  int inner = 0;
+  while (outer < column_width) {
+    inner = 0;
+    while (inner < row_width) {
+      if (outer <= inner) {
+        inner = inner + 1;
+        continue;
+      }
+      int saved = values[outer * row_width + inner];
+      values[inner * column_width + outer] =
+          values[outer * row_width + inner];
+      values[outer * row_width + inner] = saved;
+      inner = inner + 1;
+    }
+    outer = outer + 1;
+  }
+  return -7;
+}
+
+int bad_alias(int count) {
+  int cursor = 0;
+  int answer = 0;
+  while (cursor < count) {
+    storage[cursor] = cursor + 1;
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < 3) {
+    reshape_lower_triangle(count, storage, storage[cursor], cursor + 1);
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < count) {
+    answer = answer + storage[cursor];
+    cursor = cursor + 1;
+  }
+  return answer;
+}
+
+int bad_liveout(int count) {
+  int shapes[3];
+  int shape_count = 3;
+  int cursor = 0;
+  int answer = 0;
+  int sink = 0;
+  shapes[0] = 4;
+  shapes[1] = 6;
+  shapes[2] = 3;
+  while (cursor < count) {
+    storage[cursor] = cursor + 1;
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    reshape_lower_triangle(count, storage, shapes[cursor], cursor + 1);
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < count) {
+    answer = answer + storage[cursor];
+    cursor = cursor + 1;
+  }
+  sink = cursor;
+  return answer + sink;
+}
+
+int bad_side_effect_arg(int count) {
+  int shapes[3];
+  int shape_count = 3;
+  int cursor = 0;
+  int answer = 0;
+  shapes[0] = 4;
+  shapes[1] = 6;
+  shapes[2] = 3;
+  while (cursor < count) {
+    storage[cursor] = cursor + 1;
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    reshape_lower_triangle(count, storage, shapes[cursor], getint());
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < count) {
+    answer = answer + storage[cursor];
+    cursor = cursor + 1;
+  }
+  return answer;
+}
+
+int bad_non_triangle(int count) {
+  int shapes[3];
+  int shape_count = 3;
+  int cursor = 0;
+  int answer = 0;
+  shapes[0] = 4;
+  shapes[1] = 6;
+  shapes[2] = 3;
+  while (cursor < count) {
+    storage[cursor] = cursor + 1;
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    reshape_non_triangle(count, storage, shapes[cursor]);
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < count) {
+    answer = answer + storage[cursor];
+    cursor = cursor + 1;
+  }
+  return answer;
+}
+
+int run_reentry(int count) {
+  int shapes[3];
+  int shape_count = 3;
+  int cursor = 0;
+  int answer = 5;
+  shapes[0] = 4;
+  shapes[1] = 6;
+  shapes[2] = 3;
+  while (cursor < count) {
+    storage[cursor] = cursor * 3 + 1;
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    reshape_lower_triangle(count, storage, shapes[cursor], cursor + 1);
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    answer = answer + (cursor + 3) * storage[cursor] - cursor;
+    cursor = cursor + 1;
+  }
+  return answer;
+}
+
+int main() {
+  putint(run_reentry(24));
+  putch(10);
+  putint(run_reentry(0));
+  putch(10);
+  return 0;
+}

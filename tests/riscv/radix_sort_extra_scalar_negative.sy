@@ -1,0 +1,83 @@
+const int DIGITS = 8;
+
+int select_digit_extra_used(int value, int position, int context) {
+  int power = 1;
+  int level = 0;
+  while (level < position) {
+    value = value / DIGITS;
+    level = level + 1;
+  }
+  return value % DIGITS + context;
+}
+
+void sort_by_digits_extra_used(int position, int values[], int begin, int end,
+                               int context) {
+  int starts[DIGITS] = {};
+  int limits[DIGITS] = {};
+  int counts[DIGITS] = {};
+  if (position == -1 || begin + 1 >= end)
+    return;
+  {
+    int cursor = begin;
+    while (cursor < end) {
+      counts[select_digit_extra_used(values[cursor], position, 0)] =
+          counts[select_digit_extra_used(values[cursor], position, 0)] + 1;
+      cursor = cursor + 1;
+    }
+    starts[0] = begin;
+    limits[0] = begin + counts[0];
+    cursor = 1;
+    while (cursor < DIGITS) {
+      starts[cursor] = limits[cursor - 1];
+      limits[cursor] = starts[cursor] + counts[cursor];
+      cursor = cursor + 1;
+    }
+    cursor = 0;
+    while (cursor < DIGITS) {
+      while (starts[cursor] < limits[cursor]) {
+        int value = values[starts[cursor]];
+        while (select_digit_extra_used(value, position, 0) != cursor) {
+          int temporary = value;
+          value = values[starts[select_digit_extra_used(
+              temporary, position, 0)]];
+          values[starts[select_digit_extra_used(temporary, position, 0)]] =
+              temporary;
+          starts[select_digit_extra_used(temporary, position, 0)] =
+              starts[select_digit_extra_used(temporary, position, 0)] + 1;
+        }
+        values[starts[cursor]] = value;
+        starts[cursor] = starts[cursor] + 1;
+      }
+      cursor = cursor + 1;
+    }
+  }
+  {
+    int cursor = begin;
+    starts[0] = begin;
+    limits[0] = begin + counts[0];
+    cursor = 0;
+    while (cursor < DIGITS) {
+      if (cursor > 0) {
+        starts[cursor] = limits[cursor - 1];
+        limits[cursor] = starts[cursor] + counts[cursor];
+      }
+      sort_by_digits_extra_used(position - 1, values, starts[cursor],
+                                limits[cursor], 0);
+      cursor = cursor + 1;
+    }
+  }
+}
+
+int values_extra_used[64];
+
+int main() {
+  int cursor = 0;
+  while (cursor < 64) {
+    values_extra_used[cursor] = (cursor * 197 + 53) % 4096;
+    cursor = cursor + 1;
+  }
+  sort_by_digits_extra_used(3, values_extra_used, 0, 64, 0);
+  putint(values_extra_used[0]);
+  putch(10);
+  return 0;
+}

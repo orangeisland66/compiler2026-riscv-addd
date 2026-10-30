@@ -1,0 +1,30 @@
+int data[32];
+
+int loop(int s, int t, int d) {
+    int sum = 0;
+    int x = s;
+    while (x < t) {
+        sum = sum + data[x];
+        x = x + d;
+    }
+    return sum;
+}
+
+int main() {
+    int i = 0;
+    while (i < 32) {
+        data[i] = i * 3 + 1;
+        i = i + 1;
+    }
+    putint(loop(1, 8, 3));
+    putch(10);
+    putint(loop(2, 10, 4));
+    putch(10);
+    putint(loop(10, 1, 0));
+    putch(10);
+    putint(loop(10, 1, -1));
+    putch(10);
+    putint(loop(30, 32, 1));
+    putch(10);
+    return 0;
+}

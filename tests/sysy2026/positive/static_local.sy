@@ -1,0 +1,11 @@
+int next() {
+  static int value = 0;
+  value = value + 1;
+  return value;
+}
+
+int main() {
+  putint(next());
+  putint(next());
+  return 0;
+}

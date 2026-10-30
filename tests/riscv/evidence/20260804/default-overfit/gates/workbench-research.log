@@ -1,0 +1,5 @@
+=== [1/3] build ===
+  build OK
+=== [2/3] compliance ===
+  bit_accumulator_tests.sh
+[INFO] keeping failure artifacts in /mnt/d/tmp/riscv-default-overfit-audit-20260803/workbench-research/tmp/verify_730

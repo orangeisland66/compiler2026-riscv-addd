@@ -1,0 +1,13 @@
+// 用户函数即使与编译器内部 helper 同名，也必须按源程序函数体执行。
+int __syc_modmul_i32(int left, int right, int modulus) {
+  if (right == 0) {
+    return left + modulus;
+  }
+  return __syc_modmul_i32(left, right - 1, modulus) + 1;
+}
+
+int main() {
+  putint(__syc_modmul_i32(2, 3, 5));
+  putch(10);
+  return 0;
+}

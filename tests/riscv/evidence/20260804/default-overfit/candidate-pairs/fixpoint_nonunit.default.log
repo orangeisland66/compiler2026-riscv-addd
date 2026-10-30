@@ -1,0 +1,2 @@
+[loop-state-fixpoint-break] reject header=walk_down_by_two.while.cond2 reason=multi-phi
+[loop-state-fixpoint-break] reject header=main.while.cond2 reason=iv-used

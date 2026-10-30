@@ -1,0 +1,16 @@
+{
+  "compiler": "/home/orangeisland66/code/compiler/compiler2026-riscv-addd/build-plan-strict/compiler",
+  "cases": "/tmp/syc-c0-final-20260814/selected-cases",
+  "runtime": "/home/orangeisland66/code/compiler/compiler2026-riscv-addd/build-plan/libsysy_runtime.a",
+  "gcc": "riscv64-linux-gnu-gcc",
+  "qemu": "qemu-riscv64",
+  "passed": 61,
+  "total": 61,
+  "wall_s": 12.801859188999515,
+  "total_compile_ms": 2179.3623289959214,
+  "total_link_ms": 3769.0426490007667,
+  "total_run_ms": 6808.706007001092,
+  "total_internal_us": 1102000.0,
+  "runs": 1,
+  "jobs": 1
+}

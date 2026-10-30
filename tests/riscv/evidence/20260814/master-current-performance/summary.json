@@ -1,0 +1,58 @@
+{
+  "date": "2026-08-14",
+  "comparison": "origin/master baseline -> current dirty master-new working tree",
+  "refs": {
+    "current_branch": "master-new",
+    "current_head": "0f18dc6e22872e1277dd42780a45de8a4015f123",
+    "baseline_ref": "origin/master",
+    "baseline_commit": "c7eba4837484dab6b80e19dabf610ebfa78a02fc",
+    "baseline_commit_subject": "整理：移除休眠向量化实现"
+  },
+  "artifacts": {
+    "baseline_compiler_sha256": "0646d2e53cabcc1700e213ba1d34809dd3783ad15b6058ec483140edb8519237",
+    "current_compiler_sha256": "d48e8317b3a706cc3e0e19ebb98be914862bd0fa3109fcbe28c873d671d67dae",
+    "runtime_sha256": "7f5b21a016eb4525b775bd99bffdf15aaf026dcc6736c076f64beb09a0529cab",
+    "gcc": "riscv64-linux-gnu-gcc 13.3.0",
+    "qemu": "qemu-riscv64-static 8.2.2"
+  },
+  "method": {
+    "suite": "/home/orangeisland66/下载/设计文档/2026初赛RISCV赛道性能用例/performance",
+    "public_cli": "compiler -S -O1 -o",
+    "runner": "tests/run_performance.py --opt --runs 1 --jobs 1",
+    "order": "baseline then current",
+    "runs": 1,
+    "assembly_impact": "60/60 changed",
+    "warning": "单轮结果不是 median，不用于声明稳定回退幅度"
+  },
+  "baseline_master": {
+    "correctness": "60/60 PASS",
+    "wall_s": 12.334,
+    "compile_ms": 1981.426,
+    "link_ms": 3782.117,
+    "run_ms": 6524.601,
+    "internal_timer_us": 696000
+  },
+  "current": {
+    "correctness": "60/60 PASS",
+    "wall_s": 13.058,
+    "compile_ms": 2200.829,
+    "link_ms": 3781.369,
+    "run_ms": 7031.742,
+    "internal_timer_us": 1119000
+  },
+  "current_delta_percent": {
+    "wall_s": 5.8700,
+    "compile_ms": 11.0730,
+    "link_ms": -0.0198,
+    "run_ms": 7.7728,
+    "internal_timer_us": 60.7759
+  },
+  "byte_identical_control": {
+    "case": "/home/orangeisland66/下载/设计文档/2026初赛RISCV赛道功能用例/functional/00_main.sy",
+    "assembly_sha256": "269a3e8ff3c7902f7bd7ff3645dd2217fefbeff9db01a80fb207923e09cb63e7",
+    "baseline_run_ms": 8.639400,
+    "current_run_ms": 8.934223,
+    "current_delta_percent": 3.4125
+  },
+  "conclusion": "本次 baseline->current 单轮中当前 total_run_ms 落后 7.7728%；control 显示约 3.4% 噪声，内部计时落后 60.7759%，因此可确认本轮当前性能较差，但稳定幅度仍需反向或交错多轮确认"
+}

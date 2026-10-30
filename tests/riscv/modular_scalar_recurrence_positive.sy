@@ -1,0 +1,13 @@
+// 正例：正模数下的固定加法递推可由运行期守卫选择闭式快路径。
+int main() {
+  int limit = getint();
+  int accumulator = getint();
+  int index = 0;
+  while (index < limit) {
+    accumulator = (accumulator + 3) % 17;
+    index = index + 1;
+  }
+  putint(accumulator);
+  putch(10);
+  return 0;
+}

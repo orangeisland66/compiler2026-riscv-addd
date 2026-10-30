@@ -1,0 +1,18 @@
+int maybe_hang(int value) {
+  if (value == 0) {
+    while (1) {
+    }
+  }
+  return value;
+}
+
+int main() {
+  int index = 0;
+  int result = 0;
+  while (index < 4) {
+    result = maybe_hang(index);
+    index = index + 1;
+  }
+  putint(result);
+  return 0;
+}

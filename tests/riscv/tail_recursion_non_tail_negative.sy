@@ -1,0 +1,11 @@
+int add_after_recursion(int depth) {
+  if (depth <= 0)
+    return 0;
+  return add_after_recursion(depth - 1) + 1;
+}
+
+int main() {
+  putint(add_after_recursion(7));
+  putch(10);
+  return 0;
+}

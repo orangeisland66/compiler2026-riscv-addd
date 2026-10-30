@@ -1,0 +1,182 @@
+[linear-recurrence] reject header=radixSort.while.cond4 reason=bad-bound
+[linear-recurrence] reject header=radixSort.while.cond7 reason=bad-bound
+[linear-recurrence] reject header=radixSort.while.cond16 reason=not-canonical
+[linear-recurrence] reject header=radixSort.while.cond19 reason=effects
+[linear-recurrence] reject header=radixSort.while.cond13 reason=not-canonical
+[linear-recurrence] reject header=radixSort.while.cond10 reason=effects
+[linear-recurrence] reject header=main.while.cond2 reason=effects
+[loop-state-fixpoint-break] reject header=radixSort.while.cond4 reason=iv-used
+[loop-state-fixpoint-break] reject header=radixSort.while.cond7 reason=iv-used
+[loop-state-fixpoint-break] reject header=radixSort.while.cond10 reason=iv-used
+[loop-state-fixpoint-break] reject header=radixSort.while.cond16 reason=header-extra-inst
+[loop-state-fixpoint-break] reject header=radixSort.while.cond13 reason=header-extra-inst
+[loop-state-fixpoint-break] reject header=radixSort.while.cond19 reason=iv-used
+[loop-state-fixpoint-break] reject header=main.while.cond2 reason=iv-used
+[procedure-inline] reject callee=getNumPos reason=size inst=31 loops=0 argMemOnly=1 noRecurse=1 readsUnknown=0 readsGlobal=0 callers=1 calls=2
+[procedure-inline] reject callee=radixSort reason=effects inst=126 loops=6 argMemOnly=0 noRecurse=0 readsUnknown=0 readsGlobal=0 callers=2 calls=2
+[stencil-interior] reject func=radixSort header=radixSort.while.cond4 reason=store-phi
+[stencil-interior] reject func=radixSort header=radixSort.while.cond7 reason=latch-store
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond16 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond16 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond19 reason=latch-store
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond13 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond13 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond10 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond2 reason=store-phi
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=cfg-full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=full reject=clone-budget
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=partial accept factor=4 cost=13
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=cfg-full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=cfg-full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=cfg-full reject=call-trip-budget
+[loop-unroll] main header=main.while.cond2 phase=full reject=non-const-trip
+[loop-unroll] main header=main.while.cond2 phase=partial accept factor=4 cost=10
+[loop-unroll] main header=main.while.cond2 phase=full reject=not-canonical
+[loop-unroll] main header=main.while.cond2 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=cfg-full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=cfg-full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=cfg-full reject=call-trip-budget
+[loop-unroll] main header=main.while.cond2 phase=full reject=not-canonical
+[loop-unroll] main header=main.while.cond2 phase=cfg-full reject=not-canonical
+[stencil-interior] reject func=radixSort header=radixSort.while.cond4 reason=store-phi
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond16 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond16 reason=loop-shape
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond7 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond7 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond19 reason=latch-store
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond13 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond13 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond10 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.while.cond2 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond2 reason=loop-shape
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=cfg-full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=cfg-full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=cfg-full reject=call-trip-budget
+[loop-unroll] main header=main.while.cond2 phase=full reject=not-canonical
+[loop-unroll] main header=main.while.cond2 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=cfg-full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=cfg-full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=cfg-full reject=call-trip-budget
+[loop-unroll] main header=main.while.cond2 phase=full reject=not-canonical
+[loop-unroll] main header=main.while.cond2 phase=cfg-full reject=not-canonical
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond4 blocks=2 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond16 blocks=2 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond7 blocks=4 latches=2
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond19 blocks=4 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond13 blocks=5 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond10 blocks=8 latches=1
+[array_recurrence] inspect func=main header=main.while.cond2 blocks=4 latches=2
+[linear-recurrence] reject header=radixSort.while.cond7 reason=not-canonical
+[linear-recurrence] reject header=radixSort.while.cond19 reason=effects
+[linear-recurrence] reject header=radixSort.while.cond4 reason=bad-bound
+[linear-recurrence] reject header=radixSort.while.cond16 reason=not-canonical
+[linear-recurrence] reject header=radixSort.while.cond13 reason=not-canonical
+[linear-recurrence] reject header=radixSort.while.cond10 reason=effects
+[linear-recurrence] reject header=main.while.cond2 reason=not-canonical
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond7 blocks=4 latches=2
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond19 blocks=6 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond16 blocks=11 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond4 blocks=11 latches=1
+    [scan] gep=gep id=139 iv=i.addr.phi off=shl/sr.shl matched=1 coeff=4 const=0 inv=0
+      [off-op] lhs=phi/i.addr.phi rhs=leaf/ci
+    [scan] gep=gep id=145 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=phi/digit.retval rhs=leaf/ci
+[array_recurrence] func=radixSort header=radixSort.while.cond4 blocks=11 cand=1
+  [cand] gep=gep id=139 stepConst=4 stepInv=0 uses=1 const=0 inv=0
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond13 blocks=14 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond10 blocks=17 latches=1
+    [scan] gep=gep id=252 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=load/load.head rhs=leaf/ci
+    [scan] gep=gep id=274 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=phi/digit.retval rhs=leaf/ci
+    [scan] gep=gep id=278 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=load/load.head rhs=leaf/ci
+    [scan] gep=gep id=234 iv=i.addr.phi off=shl/sr.shl matched=1 coeff=4 const=0 inv=0
+      [off-op] lhs=phi/i.addr.phi rhs=leaf/ci
+    [scan] gep=gep id=239 iv=i.addr.phi off=shl/sr.shl matched=1 coeff=4 const=0 inv=0
+      [off-op] lhs=phi/i.addr.phi rhs=leaf/ci
+    [scan] gep=gep id=317 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=load/load.head rhs=leaf/ci
+[array_recurrence] func=radixSort header=radixSort.while.cond10 blocks=17 cand=2
+  [cand] gep=gep id=234 stepConst=4 stepInv=0 uses=3 const=0 inv=0
+  [cand] gep=gep id=239 stepConst=4 stepInv=0 uses=1 const=0 inv=0
+[array_recurrence] inspect func=main header=main.while.cond2 blocks=4 latches=2
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond7 blocks=4 latches=2
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond19 blocks=6 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond16 blocks=9 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond4 blocks=9 latches=1
+    [scan] gep=gep id=145 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=phi/digit.retval rhs=leaf/ci
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond13 blocks=12 latches=1
+[array_recurrence] inspect func=radixSort header=radixSort.while.cond10 blocks=15 latches=1
+    [scan] gep=gep id=252 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=load/load.head rhs=leaf/ci
+    [scan] gep=gep id=274 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=phi/digit.retval rhs=leaf/ci
+    [scan] gep=gep id=278 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=load/load.head rhs=leaf/ci
+    [scan] gep=gep id=317 iv=i.addr.phi off=shl/sr.shl matched=0 coeff=0 const=0 inv=0
+      [off-op] lhs=load/load.head rhs=leaf/ci
+[array_recurrence] inspect func=main header=main.while.cond2 blocks=4 latches=2
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond7 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond19 phase=cfg-full reject=call-trip-budget
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond4 phase=cfg-full reject=non-const-trip
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond16 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond13 phase=cfg-full reject=not-canonical
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=full reject=extra-block
+[loop-unroll] radixSort header=radixSort.while.cond10 phase=cfg-full reject=guarded-clone-cost
+[loop-unroll] main header=main.while.cond2 phase=full reject=not-canonical
+[loop-unroll] main header=main.while.cond2 phase=cfg-full reject=not-canonical
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond7 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond7 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond19 reason=latch-store
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond16 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond16 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond4 reason=store-phi
+[stencil-interior] loop-detail func=radixSort header=radixSort.while.cond13 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=radixSort header=radixSort.while.cond13 reason=loop-shape
+[stencil-interior] reject func=radixSort header=radixSort.while.cond10 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.while.cond2 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond2 reason=loop-shape

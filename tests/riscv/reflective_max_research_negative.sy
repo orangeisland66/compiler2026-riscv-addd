@@ -1,0 +1,18 @@
+int choose_larger(int left, int right) {
+  if (left < right)
+    return right;
+  return left;
+}
+
+int reflect_value(int value) {
+  int first = choose_larger(value, 1000000 - value);
+  int second = choose_larger(first, 400000 - first);
+  int third = choose_larger(second, 100000 - second);
+  return (third + third * 3 / 1000 * 1001) % 19491001;
+}
+
+int main() {
+  putint(reflect_value(123));
+  putch(10);
+  return 0;
+}

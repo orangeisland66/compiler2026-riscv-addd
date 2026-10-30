@@ -1,0 +1,11 @@
+int walk_depth(int depth, int acc, int bias) {
+  if (depth <= 0)
+    return acc;
+  return walk_depth(depth - 1, acc + bias, bias);
+}
+
+int main() {
+  putint(walk_depth(37, 5, 2));
+  putch(10);
+  return 0;
+}

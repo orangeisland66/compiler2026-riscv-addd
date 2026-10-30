@@ -1,0 +1,61 @@
+int bad_acc_lvalue(int depth, int acc, int context) {
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  acc = acc + 1;
+  return bad_acc_lvalue(depth - 1, acc + 1, context);
+}
+
+int bad_acc_condition(int depth, int acc, int context) {
+  if (acc > 100)
+    return acc;
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  return bad_acc_condition(depth - 1, acc + 1, context);
+}
+
+int bad_variable_delta(int depth, int acc, int context) {
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  return bad_variable_delta(depth - 1, acc + context, context);
+}
+
+int bad_acc_local_init(int depth, int acc, int context) {
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  int snapshot = acc + context;
+  return bad_acc_local_init(depth - 1, acc + 1, context);
+}
+
+int bad_acc_expr_stmt(int depth, int acc, int context) {
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  acc + context;
+  return bad_acc_expr_stmt(depth - 1, acc + 1, context);
+}
+
+int main() {
+  int depth = getint();
+  int acc = getint();
+  int context = getint();
+  putint(bad_acc_lvalue(depth, acc, context));
+  putch(10);
+  putint(bad_acc_condition(depth, acc, context));
+  putch(10);
+  putint(bad_variable_delta(depth, acc, context));
+  putch(10);
+  putint(bad_acc_local_init(depth, acc, context));
+  putch(10);
+  putint(bad_acc_expr_stmt(depth, acc, context));
+  putch(10);
+  return 0;
+}

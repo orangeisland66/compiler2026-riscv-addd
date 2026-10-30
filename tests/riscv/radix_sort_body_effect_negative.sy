@@ -1,0 +1,75 @@
+const int RADIX = 2;
+
+int observed;
+
+int select_digit_effect(int value, int position) {
+  int level = 0;
+  while (level < position) {
+    value = value / RADIX;
+    level = level + 1;
+  }
+  return value % RADIX;
+}
+
+void sort_with_effect(int position, int values[], int begin, int end) {
+  int starts[RADIX] = {};
+  int limits[RADIX] = {};
+  int counts[RADIX] = {};
+  observed = observed + 1;
+  if (position == -1 || begin + 1 >= end)
+    return;
+  int cursor = begin;
+  while (cursor < end) {
+    counts[select_digit_effect(values[cursor], position)] =
+        counts[select_digit_effect(values[cursor], position)] + 1;
+    cursor = cursor + 1;
+  }
+  starts[0] = begin;
+  limits[0] = begin + counts[0];
+  cursor = 1;
+  while (cursor < RADIX) {
+    starts[cursor] = limits[cursor - 1];
+    limits[cursor] = starts[cursor] + counts[cursor];
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < RADIX) {
+    while (starts[cursor] < limits[cursor]) {
+      int value = values[starts[cursor]];
+      while (select_digit_effect(value, position) != cursor) {
+        int temporary = value;
+        value = values[starts[select_digit_effect(temporary, position)]];
+        values[starts[select_digit_effect(temporary, position)]] = temporary;
+        starts[select_digit_effect(temporary, position)] =
+            starts[select_digit_effect(temporary, position)] + 1;
+      }
+      values[starts[cursor]] = value;
+      starts[cursor] = starts[cursor] + 1;
+    }
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  starts[0] = begin;
+  limits[0] = begin + counts[0];
+  while (cursor < RADIX) {
+    if (cursor > 0) {
+      starts[cursor] = limits[cursor - 1];
+      limits[cursor] = starts[cursor] + counts[cursor];
+    }
+    sort_with_effect(position - 1, values, starts[cursor], limits[cursor]);
+    cursor = cursor + 1;
+  }
+}
+
+int values[4];
+
+int main() {
+  values[0] = 3;
+  values[1] = 1;
+  values[2] = 2;
+  values[3] = 0;
+  sort_with_effect(1, values, 0, 4);
+  putint(observed);
+  putch(10);
+  return 0;
+}

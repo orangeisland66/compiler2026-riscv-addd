@@ -1,0 +1,266 @@
+const int SIDE = 4;
+const int RECT_COLS = 3;
+
+void advance_rows(int width, int factor[][SIDE], int input[][SIDE],
+                  int output[][SIDE], int hint) {
+  int column;
+  int reduction;
+  int row;
+  row = 0;
+  column = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      output[row][column] = 0;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  column = 0;
+  reduction = 0;
+  while (reduction < width) {
+    row = 0;
+    while (row < width) {
+      if (factor[row][reduction] == 1) {
+        row = row + 1;
+        continue;
+      }
+      column = 0;
+      while (column < width) {
+        output[row][column] = output[row][column] *
+                              factor[row][reduction] +
+                              input[reduction][column];
+        column = column + 1;
+      }
+      row = row + 1;
+    }
+    reduction = reduction + 1;
+  }
+}
+
+void advance_rect(int width, int factor[][SIDE], int input[][SIDE],
+                  int output[][SIDE], int hint) {
+  int column;
+  int reduction;
+  int row;
+  row = 0;
+  column = 0;
+  while (row < width) {
+    column = 0;
+    while (column < RECT_COLS) {
+      output[row][column] = 0;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  column = 0;
+  reduction = 0;
+  while (reduction < width) {
+    row = 0;
+    while (row < width) {
+      if (factor[row][reduction] == 1) {
+        row = row + 1;
+        continue;
+      }
+      column = 0;
+      while (column < RECT_COLS) {
+        output[row][column] = output[row][column] *
+                              factor[row][reduction] +
+                              input[reduction][column];
+        column = column + 1;
+      }
+      row = row + 1;
+    }
+    reduction = reduction + 1;
+  }
+}
+
+void advance_side(int width, int factor[][SIDE], int input[][SIDE],
+                  int output[][SIDE], int hint) {
+  int column;
+  int reduction;
+  int row;
+  int side_effect;
+  row = 0;
+  column = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      output[row][column] = 0;
+      side_effect = side_effect + 1;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  column = 0;
+  reduction = 0;
+  while (reduction < width) {
+    row = 0;
+    while (row < width) {
+      if (factor[row][reduction] == 1) {
+        row = row + 1;
+        continue;
+      }
+      column = 0;
+      while (column < width) {
+        output[row][column] = output[row][column] *
+                              factor[row][reduction] +
+                              input[reduction][column];
+        column = column + 1;
+      }
+      row = row + 1;
+    }
+    reduction = reduction + 1;
+  }
+}
+
+int bad_alias() {
+  int width;
+  int factor[SIDE][SIDE];
+  int data[SIDE][SIDE];
+  int scratch[SIDE][SIDE];
+  int round;
+  int row;
+  int column;
+  int answer;
+  width = 4;
+  round = 0;
+  while (round < 1) {
+    advance_rows(width, factor, data, data, round + 1);
+    advance_rows(width, factor, data, data, round + 2);
+    round = round + 1;
+  }
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      answer = answer + data[row][column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return answer + scratch[0][0];
+}
+
+int bad_liveout() {
+  int width;
+  int factor[SIDE][SIDE];
+  int data[SIDE][SIDE];
+  int scratch[SIDE][SIDE];
+  int round;
+  int row;
+  int column;
+  int answer;
+  int sink;
+  width = 4;
+  round = 0;
+  while (round < 1) {
+    advance_rows(width, factor, data, scratch, round + 1);
+    advance_rows(width, factor, scratch, data, round + 2);
+    round = round + 1;
+  }
+  sink = round;
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      answer = answer + data[row][column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return answer + sink;
+}
+
+int bad_side_effect_arg() {
+  int width;
+  int factor[SIDE][SIDE];
+  int data[SIDE][SIDE];
+  int scratch[SIDE][SIDE];
+  int round;
+  int row;
+  int column;
+  int answer;
+  width = 4;
+  round = 0;
+  while (round < 1) {
+    advance_rows(width, factor, data, scratch, getint());
+    advance_rows(width, factor, scratch, data, getint());
+    round = round + 1;
+  }
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      answer = answer + data[row][column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return answer;
+}
+
+int bad_checksum() {
+  int width;
+  int factor[SIDE][SIDE];
+  int data[SIDE][SIDE];
+  int scratch[SIDE][SIDE];
+  int round;
+  int row;
+  int column;
+  int answer;
+  width = 4;
+  round = 0;
+  while (round < 1) {
+    advance_rows(width, factor, data, scratch, round + 1);
+    advance_rows(width, factor, scratch, data, round + 2);
+    round = round + 1;
+  }
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      answer = answer + data[row][column] * 2;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return answer;
+}
+
+int bad_non_square() {
+  int width;
+  int factor[SIDE][SIDE];
+  int data[SIDE][SIDE];
+  int scratch[SIDE][SIDE];
+  int round;
+  int row;
+  int column;
+  int answer;
+  width = 4;
+  round = 0;
+  while (round < 1) {
+    advance_rect(width, factor, data, scratch, round + 1);
+    advance_rect(width, factor, scratch, data, round + 2);
+    round = round + 1;
+  }
+  row = 0;
+  while (row < width) {
+    column = 0;
+    while (column < width) {
+      answer = answer + data[row][column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return answer;
+}
+
+int main() {
+  putint(0);
+  putch(10);
+  return 0;
+}

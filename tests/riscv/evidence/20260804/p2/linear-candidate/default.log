@@ -1,0 +1,3 @@
+[linear-recurrence] func=recurrence_candidate header=recurrence_candidate.while.cond2 states=2
+[linear-recurrence] reject header=recurrence_candidate.while.cond2 reason=not-canonical
+[linear-recurrence] reject header=recurrence_candidate.linrec.fast.head6 reason=not-canonical

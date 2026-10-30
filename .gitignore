@@ -1,0 +1,39 @@
+# Local CMake build trees and in-source generated files.
+/build/
+/build-*/
+/cmake-build-*/
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/compile_commands.json
+/Makefile
+
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+
+# Official rules are external review material, not submission source.
+/关于编译优化合理性及相关违规行为认定的说明.pdf
+
+# Local-only SysY runtime used for QEMU regression; not part of submission.
+/lib/sysy_runtime.c
+
+# 本地完整回归用例，不随决赛提交分发
+/2026初赛RISCV赛道功能用例/
+/2026初赛RISCV赛道性能用例/
+
+# 本地工作台和历史审计归档
+/build-wsl/
+/docs/riscv-backtrack-audit/
+/docs/riscv-score-uplift/
+/docs/riscv-20260729-audit.md
+/docs/riscv-20260729-strengthening.md
+/docs/riscv-compliance-optimization-20260802.md
+/docs/riscv-compliance-performance-followup-20260802.md
+/docs/riscv-compliance-followup-20260803.md
+/docs/riscv-cross-call-array-summary-p2-20260803.md
+/docs/riscv-demand-driven-copy-p2-20260803.md
+/docs/riscv-overfit-compliance-audit-20260802.md
+/docs/riscv-radix-sort-p2-20260803.md
+/docs/riscv-recursive-accumulator-generalization-20260803.md
+/docs/riscv-recursive-accumulator-p2-closure-20260803.md

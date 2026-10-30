@@ -1,0 +1,29 @@
+[producer-map] reject header=main.while.cond28 reason=map-live-out
+[producer-map] reject inner=main.while.cond17 reason=map
+[producer-map] reject header=main.while.cond28 reason=map-live-out
+[ast-recursive-accumulator] function=walk_state accum=acc params=4 delta=1 sentinel=7
+[ast-array-summary] function=run_extra_summary callee=advance_rows_extra calls-per-round=4 args=5
+[ast-array-summary] function=run_two callee=advance_rows_two calls-per-round=2 args=5
+[ast-array-summary] function=run_six callee=advance_rows_six calls-per-round=6 args=5
+[ast-demand-copy] function=run_demand_extra transform=reshape_lower_triangle_extra array=storage args=4
+[ast-demand-copy] function=run_zero transform=reshape_zero array=storage_zero args=4
+[ast-radix] function=sort_by_digits_extra capacity=64 args=5
+[ast-radix] function=sort_by_digits_base2 capacity=16 args=5
+[ast-radix] function=sort_by_digits_base16 capacity=32 args=5
+[loop-unroll] loop header=loop.while.cond2 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop7 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop12 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p117 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p122 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=strided-partial accept factor=2 cost=5
+[loop-unroll] loop header=loop.while.cond2 phase=strided-cfg-partial accept factor=2 cost=15
+[loop-unroll] main header=main.inline_loop4 phase=strided-cfg-partial accept factor=2 cost=15
+[loop-unroll] main header=main.inline_loop11 phase=strided-cfg-partial accept factor=2 cost=15
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p118 phase=strided-cfg-partial accept factor=2 cost=15
+[loop-unroll] main header=main.inline_loop.spec.arg0.i32_p10.spec.arg0.i32_p125 phase=strided-cfg-partial accept factor=2 cost=15
+[loop-unroll] loop.spec.arg0.i32_p10.spec.arg0.i32_p1 header=loop.spec.arg0.i32_p10.spec.arg0.i32_p1.spec1 phase=strided-cfg-partial accept factor=2 cost=15
+[bit-pattern] accept-helper _and and
+[bit-pattern] accept-helper _xor xor
+[stage-fusion] func=main root=Out map=main.inline_nonlinear28
+[stencil-interior] func=main header=main.inline_conv2d15 taps=17 producerMap=1
+riscv compliance risks: PASS

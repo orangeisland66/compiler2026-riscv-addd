@@ -1,0 +1,2 @@
+[pure-call-last-value] reject header=fold_total.while.cond2 reason=body-reads-phi
+[pure-call-last-value] reject header=main.inline_fold_total7 reason=body-reads-phi

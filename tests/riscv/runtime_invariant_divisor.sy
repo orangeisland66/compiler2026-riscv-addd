@@ -1,0 +1,23 @@
+// 验证循环不变运行时除数在正数、负数和边界输入下的除法与取模结果。
+int values[64];
+int quotients[64];
+int remainders[64];
+
+int main() {
+  int divisor = getint();
+  int count = getarray(values);
+  int outer = 0;
+  int index = 0;
+  while (outer < 2) {
+    index = 0;
+    while (index < count) {
+      quotients[index] = values[index] / divisor;
+      remainders[index] = values[index] % divisor;
+      index = index + 1;
+    }
+    outer = outer + 1;
+  }
+  putarray(count, quotients);
+  putarray(count, remainders);
+  return 0;
+}

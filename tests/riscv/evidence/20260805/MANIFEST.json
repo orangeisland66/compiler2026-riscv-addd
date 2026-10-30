@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-05",
+  "architecture": "riscv64",
+  "code_commit": "d5289da55112f3467339eca2fca7916c414fd4b8",
+  "baseline_commit": "f4bcbe5",
+  "build_profile": "Release, SYC_ENABLE_RESEARCH_PASSES=OFF",
+  "runtime": "外部 SysY 运行时，仅用于本地静态链接与 QEMU 正确性验证，未提交到仓库",
+  "results": {
+    "functional_correctness": "140/140",
+    "performance_correctness": "60/60",
+    "strict_all_enable_assembly": "200/200 byte-identical",
+    "performance_assembly_vs_baseline": "60/60 byte-identical",
+    "strict_audit": "12/12",
+    "semantic_registry": "6/6",
+    "changed_performance_cases": 0
+  },
+  "files": {
+    "final-compliance/suite-summary.json": "全量功能与性能正确性汇总",
+    "final-compliance/suite-cases.csv": "200 个用例的逐项 QEMU 状态",
+    "final-compliance/strict-enable-flags.txt": "strict 隔离检查注入的 18 个 SYC_ENABLE_* 名称",
+    "final-compliance/strict-all-enable-sha256.csv": "200 对默认/全开 strict 汇编 SHA-256",
+    "final-compliance/performance-asm-compare.json": "60 个性能用例的规范化汇编比较结论",
+    "final-compliance/performance-asm-sha256.csv": "60 对基线/当前汇编 SHA-256"
+  },
+  "excluded_artifacts": [
+    "构建目录",
+    "编译器二进制",
+    "ELF 可执行文件",
+    "外部运行时库",
+    "重复的全量汇编副本"
+  ]
+}

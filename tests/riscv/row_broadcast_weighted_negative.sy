@@ -1,0 +1,59 @@
+// 负例：checksum 对列号加权，不能替换成未加权的行最小值摘要。
+const int BROADCAST_NEGATIVE_SIZE = 8;
+const int BROADCAST_NEGATIVE_MAX = 2147483647;
+int weighted_matrix[BROADCAST_NEGATIVE_SIZE][BROADCAST_NEGATIVE_SIZE];
+
+int main() {
+  int guard = getint();
+  if (guard < 0) {
+    return guard;
+  }
+  int row = 0;
+  while (row < BROADCAST_NEGATIVE_SIZE) {
+    int column = 0;
+    while (column < BROADCAST_NEGATIVE_SIZE) {
+      weighted_matrix[row][column] = (row + 1) * 11 - column * 3;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  while (row < BROADCAST_NEGATIVE_SIZE) {
+    int column = 0;
+    int row_minimum = BROADCAST_NEGATIVE_MAX;
+    while (column < BROADCAST_NEGATIVE_SIZE) {
+      if (weighted_matrix[row][column] < row_minimum) {
+        row_minimum = weighted_matrix[row][column];
+      }
+      column = column + 1;
+    }
+    column = 0;
+    while (column < BROADCAST_NEGATIVE_SIZE) {
+      weighted_matrix[row][column] = row_minimum;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  row = 0;
+  while (row < BROADCAST_NEGATIVE_SIZE) {
+    int column = 0;
+    while (column < BROADCAST_NEGATIVE_SIZE) {
+      weighted_matrix[row][column] = -weighted_matrix[column][row];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  int checksum = 0;
+  row = 0;
+  while (row < BROADCAST_NEGATIVE_SIZE) {
+    int column = 0;
+    while (column < BROADCAST_NEGATIVE_SIZE) {
+      checksum = checksum + weighted_matrix[row][column] * (column + 1);
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  putint(checksum);
+  putch(10);
+  return 0;
+}

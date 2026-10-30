@@ -1,0 +1,41 @@
+void emit_start() {
+  starttime();
+}
+
+void emit_int() {
+  putint(7);
+}
+
+void emit_float() {
+  putfloat(1.0);
+}
+
+void emit_char() {
+  putch(10);
+}
+
+void emit_stop() {
+  stoptime();
+}
+
+int main() {
+  int selector = getint();
+  if (selector == 0) {
+    emit_start();
+    return 0;
+  }
+  if (selector == 1) {
+    emit_int();
+    return 0;
+  }
+  if (selector == 2) {
+    emit_float();
+    return 0;
+  }
+  if (selector == 3) {
+    emit_char();
+    return 0;
+  }
+  emit_stop();
+  return 0;
+}

@@ -1,0 +1,20 @@
+int stride_samples[128];
+
+int main() {
+  int cursor = 0;
+  while (cursor < 128) {
+    stride_samples[cursor] = cursor * 5 + 2;
+    cursor = cursor + 1;
+  }
+
+  int total = 0;
+  cursor = 0;
+  while (cursor < 128) {
+    total = total + stride_samples[cursor];
+    cursor = cursor + 1;
+  }
+
+  putint(total);
+  putch(10);
+  return 0;
+}

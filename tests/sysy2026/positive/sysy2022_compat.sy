@@ -1,0 +1,9 @@
+float blend(float lhs, int rhs) {
+  return lhs + rhs;
+}
+
+int main() {
+  int matrix[2][2] = {{1, 2}, {3, 4}};
+  float value = blend(1.5, matrix[1][0]);
+  return matrix[1][1] + value;
+}

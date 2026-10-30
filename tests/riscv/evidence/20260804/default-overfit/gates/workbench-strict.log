@@ -1,0 +1,27 @@
+=== [1/3] build ===
+  build OK
+=== [2/3] compliance ===
+  strict_boundary_tests.sh
+strict research boundary: PASS
+  bit_accumulator_tests.sh
+bit accumulator compliance: PASS
+  pow2_digit_tests.sh
+pow2 digit compliance: PASS
+  store_to_load_forward_tests.sh
+store_to_load_forward_tests.sh PASS
+  generic_platform_opt_tests.sh
+generic platform optimizations compliance: PASS
+  row_locality_suffix_tests.sh
+row locality suffix boundary compliance: PASS
+  dead_function_elimination_tests.sh
+dead function elimination compliance: PASS
+  generalized_stage2_transform_tests.sh
+generalized_cross_summary PASS: [ast-array-summary] function=run_summary_case callee=advance_rows calls-per-round=4 args=4
+generalized_demand_copy PASS: [ast-demand-copy] function=run_demand_case transform=reshape_lower_triangle array=storage args=3
+generalized_reflective_range SKIP: research-only case (use SYC_RESEARCH=1)
+generalized_radix_base8 PASS: [ast-radix] function=sort_by_digits capacity=64 args=4
+  recursive_memo_fixed_state_tests.sh
+recursive fixed-state memo compliance: PASS
+  recursive_modmul_tests.sh
+recursive modmul compliance: PASS
+=== verify OK ===

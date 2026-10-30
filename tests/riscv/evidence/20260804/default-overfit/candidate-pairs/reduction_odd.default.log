@@ -1,0 +1,17 @@
+[reduction-split] func=main forest_nodes=5
+[reduction-split] depth0 header=main.while.cond2 children=1
+[reduction-split] depth1 header=main.while.cond5 children=0
+[reduction-split] depth0 header=main.while.cond8 children=1
+[reduction-split] depth1 header=main.while.cond11 children=1
+[reduction-split] depth2 header=main.while.cond14 preheader=main.while.body12
+[reduction-split] matchKLoop-enter header=main.while.cond14 
+[reduction-split] canonical-ok header=main.while.cond14 
+[reduction-split] bound-not-even header=main.while.cond14 
+[reduction-split] func=main forest_nodes=7
+[reduction-split] depth0 header=main.while.cond2 children=1
+[reduction-split] depth1 header=main.tile.header23 children=1
+[reduction-split] depth0 header=main.while.cond8 children=1
+[reduction-split] depth1 header=main.while.cond11 children=1
+[reduction-split] depth2 header=main.tile.header17 preheader=main.while.body12
+[reduction-split] matchKLoop-enter header=main.tile.header17 
+[reduction-split] no-canonical header=main.tile.header17 

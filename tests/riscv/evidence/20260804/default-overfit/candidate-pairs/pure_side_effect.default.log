@@ -1,0 +1,6 @@
+[pure-call-last-value] reject header=effectful_total.while.cond2 reason=body-reads-phi
+[pure-call-last-value]   body-inst opcode=25 name=effectful_total op=cursor.addr.phi
+[pure-call-last-value] reject header=main.while.cond2 reason=body-inst
+[pure-call-last-value] reject header=effectful_total.while.cond2 reason=body-reads-phi
+[pure-call-last-value]   body-inst opcode=25 name=effectful_total op=cursor.addr.phi
+[pure-call-last-value] reject header=main.while.cond2 reason=body-inst

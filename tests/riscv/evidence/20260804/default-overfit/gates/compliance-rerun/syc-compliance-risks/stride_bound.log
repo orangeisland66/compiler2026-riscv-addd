@@ -1,0 +1,4 @@
+[loop-unroll] loop header=loop.while.cond2 phase=full reject=not-canonical
+[loop-unroll] loop header=loop.while.cond2 phase=cfg-full reject=not-canonical
+[loop-unroll] main header=main.inline_loop4 phase=full reject=not-canonical
+[loop-unroll] main header=main.inline_loop4 phase=cfg-full reject=not-canonical

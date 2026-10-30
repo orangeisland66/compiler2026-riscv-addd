@@ -1,0 +1,21 @@
+int state_left;
+int state_right;
+
+int state_recurrence(int depth) {
+  if (depth <= 1)
+    return state_left + state_right;
+  return state_recurrence(depth - 1) + state_recurrence(depth - 2);
+}
+
+int main() {
+  state_left = 0;
+  state_right = 1;
+  putint(state_recurrence(8));
+  putch(10);
+
+  state_left = 1;
+  state_right = 64;
+  putint(state_recurrence(8));
+  putch(10);
+  return 0;
+}

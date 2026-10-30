@@ -1,0 +1,5 @@
+[if-convert] processLoop blk=main.while.cond8 
+[if-convert] accPhi-ok blk=main.while.cond8 
+[if-convert] bound-ok, scanning blocks blk=main.while.cond8 
+[if-convert] candidate: main.then11 in main.while.body9 else=main.endif12 inLoop=1 bool=1
+[if-convert] skip: then block has side effects blk=main.then11 

@@ -1,0 +1,22 @@
+int interchange_values[256];
+
+int interchange_side_effect() {
+  int total = 0;
+  int row = 0;
+  while (row < 4) {
+    int column = 0;
+    while (column < 64) {
+      interchange_values[row * 64 + column] = row + column;
+      total = total + interchange_values[row * 64 + column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return total;
+}
+
+int main() {
+  putint(interchange_side_effect());
+  putch(10);
+  return 0;
+}

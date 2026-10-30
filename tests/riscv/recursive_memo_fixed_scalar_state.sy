@@ -1,0 +1,22 @@
+// 全局标量在递归调用前完成唯一赋值，随后多次调用共享同一组递归结果。
+int fixed_base;
+
+int fixed_recurrence(int depth) {
+    if (depth == 0) {
+        return fixed_base;
+    }
+    if (depth == 1) {
+        return fixed_base + 1;
+    }
+    return fixed_recurrence(depth - 1) +
+           fixed_recurrence(depth - 2);
+}
+
+int main() {
+    fixed_base = getint();
+    putint(fixed_recurrence(6));
+    putch(10);
+    putint(fixed_recurrence(7));
+    putch(10);
+    return 0;
+}

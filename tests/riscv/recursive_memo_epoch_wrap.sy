@@ -1,0 +1,17 @@
+int invocation_state[2];
+
+int invocation_recurrence(int depth) {
+  if (depth <= 1)
+    return invocation_state[0];
+  return invocation_recurrence(depth - 1) +
+         invocation_recurrence(depth - 2);
+}
+
+int main() {
+  invocation_state[0] = 2;
+  putint(invocation_recurrence(6));
+  putch(10);
+  putint(invocation_recurrence(7));
+  putch(10);
+  return 0;
+}

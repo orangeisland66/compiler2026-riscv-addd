@@ -1,0 +1,14 @@
+// 负例：递归调用会改变待特化参数，不能把初始常量传播到整个递归闭包。
+int descend(int depth, int fixed_value) {
+  if (depth <= 0) {
+    return fixed_value;
+  }
+  return descend(depth - 1, fixed_value + 1) + 1;
+}
+
+int main() {
+  int depth = getint();
+  putint(descend(depth, 7));
+  putch(10);
+  return 0;
+}

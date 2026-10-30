@@ -1,0 +1,5 @@
+int main() {
+  char text[4] = "abc";
+  putstr(text);
+  return 0;
+}

@@ -1,0 +1,24 @@
+int left[4][4];
+int right[4][4];
+int output[4][4];
+
+int main() {
+  int i = 0;
+  while (i < 4) {
+    int j = 0;
+    while (j < 4) {
+      int k = 0;
+      int temp = 0;
+      while (k < 4) {
+        temp = temp + left[i][k] * right[k][j];
+        k = k + 1;
+      }
+      output[i][j] = temp;
+      j = j + 1;
+    }
+    i = i + 1;
+  }
+  putint(output[1][1]);
+  putch(10);
+  return 0;
+}

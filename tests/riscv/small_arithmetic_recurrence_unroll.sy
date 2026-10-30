@@ -1,0 +1,29 @@
+// 多组动态短行程的纯整数递推，覆盖三倍展开后的零、一、二次尾迭代。
+int limits[16];
+int values[16];
+
+int main() {
+    int count = getarray(limits);
+    getarray(values);
+    int index = 0;
+    while (index < count) {
+        int value = values[index];
+        int step = 1;
+        int limit = limits[index];
+        while (step < limit) {
+            value = value * 2 + value % 2;
+            step = step + 1;
+        }
+        values[index] = value;
+        index = index + 1;
+    }
+    putint(values[0]);
+    putch(32);
+    putint(values[1]);
+    putch(32);
+    putint(values[2]);
+    putch(32);
+    putint(values[3]);
+    putch(10);
+    return 0;
+}

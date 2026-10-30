@@ -1,0 +1,335 @@
+
+  .bss
+  .globl hashmod
+  .align 2
+  .type  hashmod, @object
+  .size  hashmod, 4
+hashmod:
+  .zero 4
+
+  .section .rodata
+  .globl maxn
+  .align 2
+  .type  maxn, @object
+  .size  maxn, 4
+maxn:
+  .word 10000000
+
+  .section .rodata
+  .globl maxm
+  .align 2
+  .type  maxm, @object
+  .size  maxm, 4
+maxm:
+  .word 10000000
+
+  .bss
+  .globl bucket
+  .align 2
+  .type  bucket, @object
+  .size  bucket, 40000000
+bucket:
+  .zero 40000000
+
+  .bss
+  .globl head
+  .align 2
+  .type  head, @object
+  .size  head, 40000000
+head:
+  .zero 40000000
+
+  .bss
+  .globl next
+  .align 2
+  .type  next, @object
+  .size  next, 40000000
+next:
+  .zero 40000000
+
+  .bss
+  .globl nextvalue
+  .align 2
+  .type  nextvalue, @object
+  .size  nextvalue, 40000000
+nextvalue:
+  .zero 40000000
+
+  .bss
+  .globl key
+  .align 2
+  .type  key, @object
+  .size  key, 40000000
+key:
+  .zero 40000000
+
+  .bss
+  .globl value
+  .align 2
+  .type  value, @object
+  .size  value, 40000000
+value:
+  .zero 40000000
+
+  .bss
+  .globl cnt
+  .align 2
+  .type  cnt, @object
+  .size  cnt, 4
+cnt:
+  .zero 4
+
+  .bss
+  .globl keys
+  .align 2
+  .type  keys, @object
+  .size  keys, 40000000
+keys:
+  .zero 40000000
+
+  .bss
+  .globl values
+  .align 2
+  .type  values, @object
+  .size  values, 40000000
+values:
+  .zero 40000000
+
+  .bss
+  .globl requests
+  .align 2
+  .type  requests, @object
+  .size  requests, 40000000
+requests:
+  .zero 40000000
+
+  .bss
+  .globl ans
+  .align 2
+  .type  ans, @object
+  .size  ans, 40000000
+ans:
+  .zero 40000000
+
+  .text
+
+  .globl main
+  .type  main, @function
+main:
+.main.bb0:
+	addi	sp, sp, -96
+	sd	ra, 16(sp)
+	sd	s1, 24(sp)
+	sd	s2, 32(sp)
+	sd	s3, 40(sp)
+	sd	s4, 48(sp)
+	sd	s5, 56(sp)
+	sd	s6, 64(sp)
+	sd	s7, 72(sp)
+	sd	s8, 80(sp)
+	call	getint
+	mv	s1, a0
+	la	t5, keys
+	sd	t5, 0(sp)
+	ld	a0, 0(sp)
+	call	getarray
+	mv	s2, a0
+	la	t5, values
+	sd	t5, 0(sp)
+	ld	a0, 0(sp)
+	call	getarray
+	la	t5, requests
+	sd	t5, 0(sp)
+	ld	a0, 0(sp)
+	call	getarray
+	mv	s3, a0
+	li	t5, 81
+	sd	t5, 0(sp)
+	ld	a0, 0(sp)
+	call	_sysy_starttime
+	la	t0, keys
+	la	t1, values
+	li	t2, 0
+.main.bb1:
+	bge	t2, s2, .main.bb3
+.main.bb2:
+	lw	s4, 0(t0)
+	la	t3, cnt
+	lw	s6, 0(t3)
+	la	a2, head
+	lw	s5, 0(t1)
+	remw	t3, s4, s1
+	slliw	t3, t3, 2
+	add	s7, a2, t3
+	lw	s8, 0(s7)
+	bne	s8, zero, .main.bb10
+.main.bb8:
+	addiw	s6, s6, 1
+	la	t3, key
+	sw	s6, 0(s7)
+	li	a2, 0
+	slliw	s7, s6, 2
+	add	t3, t3, s7
+	sw	s4, 0(t3)
+	la	t3, value
+	add	t3, t3, s7
+	sw	s5, 0(t3)
+	la	t3, next
+	add	t3, t3, s7
+	sw	a2, 0(t3)
+	la	t3, nextvalue
+	add	t3, t3, s7
+	sw	a2, 0(t3)
+.main.bb7:
+	la	t3, cnt
+	addiw	t2, t2, 1
+	sw	s6, 0(t3)
+	addi	t0, t0, 4
+	addi	t1, t1, 4
+	blt	t2, s2, .main.bb2	# rotated-loop-branch
+.main.bb3:
+	li	t0, 0
+.main.bb26:
+	addiw	s2, t0, 8
+	bge	t0, s3, .main.bb6
+.main.bb27:
+	bge	s2, s3, .main.bb28
+.main.bb29:
+.main.bb30:
+	slliw	s4, t0, 2
+	la	t1, requests
+	la	t2, ans
+	add	t1, t1, s4
+	add	t2, t2, s4
+.main.bb4:
+	bge	t0, s2, .main.bb26
+.main.bb5:
+	lw	s4, 0(t1)
+	la	a2, head
+	remw	t3, s4, s1
+	slliw	t3, t3, 2
+	add	t3, a2, t3
+	lw	t3, 0(t3)
+.main.bb16:
+	beq	t3, zero, .main.bb18
+.main.bb17:
+	slliw	s5, t3, 2
+	la	a2, key
+	add	a2, a2, s5
+	lw	a2, 0(a2)
+	beq	a2, s4, .main.bb19
+.main.bb20:
+	la	t3, next
+	add	t3, t3, s5
+	lw	t3, 0(t3)
+	bne	t3, zero, .main.bb17	# rotated-loop-branch
+.main.bb18:
+	li	t3, 0
+.main.bb15:
+	sw	t3, 0(t2)
+	addiw	t0, t0, 1
+	addi	t1, t1, 4
+	addi	t2, t2, 4
+	j	.main.bb4
+.main.bb19:
+	li	a2, 0
+.main.bb21:
+	beq	t3, zero, .main.bb23
+.main.bb22:
+	slliw	s5, t3, 2
+	la	t3, value
+	add	t3, t3, s5
+	lw	t3, 0(t3)
+	addw	t5, a2, t3
+	la	a2, nextvalue
+	add	a2, a2, s5
+	lw	t3, 0(a2)
+	mv	a2, t5	# phi-copy
+	bne	t3, zero, .main.bb22	# rotated-loop-branch
+.main.bb23:
+	li	t3, 100
+	blt	t3, s4, .main.bb24
+.main.bb25:
+	slliw	t3, a2, 1
+	addw	t3, t3, a2
+	j	.main.bb15
+.main.bb24:
+	slliw	t3, a2, 1
+	j	.main.bb15
+.main.bb31:
+	j	.main.bb26
+.main.bb9:
+.main.bb10:
+	beq	s8, zero, .main.bb12
+.main.bb11:
+	slliw	s8, s8, 2
+	la	t3, key
+	add	t3, t3, s8
+	lw	t3, 0(t3)
+	beq	t3, s4, .main.bb13
+.main.bb14:
+	la	t3, next
+	add	t3, t3, s8
+	lw	s8, 0(t3)
+	bne	s8, zero, .main.bb11	# rotated-loop-branch
+.main.bb12:
+	lw	t3, 0(s7)
+	addiw	s6, s6, 1
+	slliw	s8, s6, 2
+	la	a2, next
+	add	a2, a2, s8
+	sw	t3, 0(a2)
+	la	t3, key
+	sw	s6, 0(s7)
+	add	t3, t3, s8
+	li	a2, 0
+	sw	s4, 0(t3)
+	la	t3, value
+	add	t3, t3, s8
+	sw	s5, 0(t3)
+	la	t3, nextvalue
+	add	t3, t3, s8
+	sw	a2, 0(t3)
+	j	.main.bb7
+.main.bb13:
+	addiw	s4, s6, 1
+	la	s6, nextvalue
+	add	s7, s6, s8
+	lw	t3, 0(s7)
+	slliw	s8, s4, 2
+	add	a2, s6, s8
+	sw	t3, 0(a2)
+	la	t3, value
+	sw	s4, 0(s7)
+	add	t3, t3, s8
+	sw	s5, 0(t3)
+	mv	s6, s4	# phi-copy
+	j	.main.bb7
+.main.bb28:
+	mv	s2, s3	# phi-copy
+	j	.main.bb30
+.main.bb6:
+	li	a0, 93
+	call	_sysy_stoptime
+	mv	t5, s3
+	sd	t5, 0(sp)
+	la	t5, ans
+	sd	t5, 8(sp)
+	ld	a0, 0(sp)
+	ld	a1, 8(sp)
+	call	putarray
+	la	t0, hashmod
+	sw	s1, 0(t0)
+	li	a0, 0
+	ld	s8, 80(sp)
+	ld	s7, 72(sp)
+	ld	s6, 64(sp)
+	ld	s5, 56(sp)
+	ld	s4, 48(sp)
+	ld	s3, 40(sp)
+	ld	s2, 32(sp)
+	ld	s1, 24(sp)
+	ld	ra, 16(sp)
+	addi	sp, sp, 96
+	ret
+	.size main, .-main

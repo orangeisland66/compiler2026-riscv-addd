@@ -1,0 +1,22 @@
+int choose_non_complement(int value, int marker) {
+  int result;
+  if (value == marker) {
+    result = value;
+  } else {
+    result = 0 - value - 2;
+  }
+  return result;
+}
+
+int main() {
+  int selector = getint();
+  int value;
+  if (selector == 0) {
+    value = getint();
+  } else {
+    value = getint();
+  }
+  int marker = getint();
+  putint(choose_non_complement(value, marker));
+  return 0;
+}

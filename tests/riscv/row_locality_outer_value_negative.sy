@@ -1,0 +1,35 @@
+// 负例：存储值额外依赖外层行号，不是闭合的矩阵规约结果。
+int locality_source[10][10];
+int locality_state[10][10];
+
+int main() {
+  int n = 8;
+  int i = 0;
+  while (i < n) {
+    int j = 0;
+    while (j < n) {
+      locality_source[i][j] = i + j + 1;
+      locality_state[i][j] = (i == j);
+      j = j + 1;
+    }
+    i = i + 1;
+  }
+  i = 0;
+  while (i < n) {
+    int j = 0;
+    while (j < n) {
+      int total = 0;
+      int k = 0;
+      while (k < n) {
+        total = total + locality_source[i][k] * locality_state[k][j];
+        k = k + 1;
+      }
+      locality_state[i][j] = total + i;
+      j = j + 1;
+    }
+    i = i + 1;
+  }
+  putint(locality_state[7][7]);
+  putch(10);
+  return 0;
+}

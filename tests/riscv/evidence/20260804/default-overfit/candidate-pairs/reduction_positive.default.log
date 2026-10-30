@@ -1,0 +1,37 @@
+[reduction-split] func=main forest_nodes=5
+[reduction-split] depth0 header=main.while.cond2 children=1
+[reduction-split] depth1 header=main.while.cond5 children=0
+[reduction-split] depth0 header=main.while.cond8 children=1
+[reduction-split] depth1 header=main.while.cond11 children=1
+[reduction-split] depth2 header=main.while.cond14 preheader=main.while.body12
+[reduction-split] matchKLoop-enter header=main.while.cond14 
+[reduction-split] canonical-ok header=main.while.cond14 
+[reduction-split] bound-ok header=main.while.cond14 32
+[reduction-split] check-header-phis header=main.while.cond14 
+[reduction-split] check-acc-init header=main.while.cond14 
+[reduction-split] accPhi-ok header=main.while.cond14 
+[reduction-split] check-body-loads header=main.while.cond14 
+[reduction-split] load-found header=main.while.cond14 addr=ok #1
+[reduction-split] load-addr header=main.while.cond14 98992892650080 usesJphi=N
+[reduction-split] aLoad-found header=main.while.cond14 
+[reduction-split] load-found header=main.while.cond14 addr=ok #2
+[reduction-split] load-addr header=main.while.cond14 98992892652240 usesJphi=Y
+[reduction-split] bLoad-found header=main.while.cond14 
+[reduction-split] loads-ok header=main.while.cond14 
+[reduction-split] check-accNext header=main.while.cond14 
+[reduction-split] accNext-found header=main.while.cond14 block=main.while.body15
+[reduction-split] acc-next-add-ok header=main.while.cond14 
+[reduction-split] check-side-effects header=main.while.cond14 
+[reduction-split] side-effects-ok header=main.while.cond14 
+[reduction-split] match-ok header=main.while.cond14 
+[reduction-split] accept header=main.while.cond14 dual-lane applied
+[reduction-split] func=main forest_nodes=5
+[reduction-split] depth0 header=main.while.cond2 children=1
+[reduction-split] depth1 header=main.while.cond5 children=0
+[reduction-split] depth0 header=main.while.cond8 children=1
+[reduction-split] depth1 header=main.while.cond11 children=1
+[reduction-split] func=main forest_nodes=11
+[reduction-split] depth0 header=main.while.cond2 children=1
+[reduction-split] depth1 header=main.tile.header23 children=1
+[reduction-split] depth0 header=main.while.cond8 children=1
+[reduction-split] depth1 header=main.while.cond11 children=3

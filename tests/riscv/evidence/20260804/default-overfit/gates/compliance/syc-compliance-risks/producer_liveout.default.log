@@ -1,0 +1,59 @@
+[stencil-interior] reject func=main header=main.while.cond5 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond8 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond28 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond34 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond37 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond40 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond23 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond2 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond20 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond31 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond17 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond14 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond11 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond28 reason=row-base
+[stencil-interior] reject func=main header=main.while.cond40 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.while.cond5 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond5 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.while.cond34 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond34 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.while.cond37 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond37 reason=loop-shape
+[stencil-interior] reject func=main header=main.while.cond2 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.tile.header44 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.tile.header44 reason=loop-shape
+[stencil-interior] reject func=main header=main.while.cond20 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond17 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond14 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond31 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond11 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond28 reason=row-base
+[stencil-interior] reject func=main header=main.while.cond40 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.while.cond5 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond5 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.while.cond34 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond34 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.while.cond37 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond37 reason=loop-shape
+[stencil-interior] reject func=main header=main.while.cond2 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.tile.header44 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.tile.header44 reason=loop-shape
+[stencil-interior] reject func=main header=main.while.cond31 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond17 reason=store-phi
+[stencil-interior] reject func=main header=main.while.cond14 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond11 reason=latch-store
+[stencil-interior] reject func=main header=main.while.cond28 reason=row-base
+[stencil-interior] reject func=main header=main.while.cond40 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.while.cond5 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond5 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.while.cond34 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond34 reason=loop-shape
+[stencil-interior] loop-detail func=main header=main.while.cond37 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.while.cond37 reason=loop-shape
+[stencil-interior] reject func=main header=main.while.cond2 reason=latch-store
+[stencil-interior] loop-detail func=main header=main.tile.header44 preheader=1 recognized=0 forward=0 singleExit=0 bodyLatch=0
+[stencil-interior] reject func=main header=main.tile.header44 reason=loop-shape
+[stencil-interior] reject func=main header=main.while.cond31 reason=latch-store
+[producer-map] reject header=main.while.cond28 reason=map-live-out
+[producer-map] reject inner=main.while.cond17 reason=map
+[stencil-interior] func=main header=main.while.cond17 taps=17 producerMap=0

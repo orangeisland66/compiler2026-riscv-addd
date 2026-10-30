@@ -1,0 +1,5 @@
+[mir-loop-addr] header=.main.bb4 phi r67 operands=5
+[mir-loop-addr] header=.main.bb4 phi r67 accept step=1
+[mir-loop-addr] header=.main.bb4 phi r66 operands=5
+[mir-loop-addr] header=.main.bb4 phi r66 skip=step-shape def=addw
+[mir-loop-symbol] function=main header=.main.bb4 symbol=samples uses=1 blocks=2 insts=12 nested=0

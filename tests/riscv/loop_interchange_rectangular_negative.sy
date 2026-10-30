@@ -1,0 +1,29 @@
+int interchange_input[256];
+int interchange_aux[256];
+
+int interchange_sum() {
+  int total = 0;
+  int row = 0;
+  while (row < 4) {
+    int column = 0;
+    while (column < 64) {
+      total = total + interchange_input[row * 64 + column] +
+              interchange_aux[row * 64 + column];
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+  return total;
+}
+
+int main() {
+  int index = 0;
+  while (index < 256) {
+    interchange_input[index] = index + 1;
+    interchange_aux[index] = index + 2;
+    index = index + 1;
+  }
+  putint(interchange_sum());
+  putch(10);
+  return 0;
+}

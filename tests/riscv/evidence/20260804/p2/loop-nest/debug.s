@@ -1,0 +1,71 @@
+
+  .bss
+  .globl fusion_input
+  .align 2
+  .type  fusion_input, @object
+  .size  fusion_input, 512
+fusion_input:
+  .zero 512
+
+  .text
+
+  .globl main
+  .type  main, @function
+main:
+.main.bb0:
+	addi	sp, sp, -32
+	sd	ra, 8(sp)
+	sd	s1, 16(sp)
+	sd	s2, 24(sp)
+	la	s1, fusion_input
+	li	t0, 0
+	li	t1, 128
+	mv	s2, s1	# phi-copy
+.main.bb1:
+	bge	t0, t1, .main.bb3
+.main.bb2:
+	addiw	t2, t0, 3
+	sw	t2, 0(s2)
+	addiw	t0, t0, 1
+	addi	s2, s2, 4
+	blt	t0, t1, .main.bb2	# rotated-loop-branch
+.main.bb3:
+	li	t0, 0
+	li	t1, 0
+	li	t2, 64
+	mv	s2, s1	# phi-copy
+.main.bb4:
+	bge	t1, t2, .main.bb6
+.main.bb5:
+	lw	t3, 0(s2)
+	addiw	t1, t1, 1
+	addw	t0, t0, t3
+	addi	s2, s2, 4
+	blt	t1, t2, .main.bb5	# rotated-loop-branch
+.main.bb6:
+	li	t1, 0
+	li	t2, 0
+	li	t3, 64
+.main.bb7:
+	bge	t2, t3, .main.bb9
+.main.bb8:
+	lw	a2, 0(s1)
+	addiw	t2, t2, 1
+	slliw	a2, a2, 1
+	addw	t1, t1, a2
+	addi	s1, s1, 4
+	blt	t2, t3, .main.bb8	# rotated-loop-branch
+.main.bb9:
+	addw	a0, t0, t1
+	call	putint
+	li	t5, 10
+	sd	t5, 0(sp)
+	ld	a0, 0(sp)
+	call	putch
+	li	a0, 0
+	ld	s2, 24(sp)
+	ld	s1, 16(sp)
+	ld	ra, 8(sp)
+	addi	sp, sp, 32
+	ret
+	.size main, .-main

@@ -1,0 +1,13 @@
+// 验证循环反复更新的全局标量可以在循环期间保存在局部 SSA 值中。
+int loop_total;
+
+int main() {
+  int n = getint();
+  int i = 0;
+  while (i < n) {
+    loop_total = loop_total + i + 1;
+    i = i + 1;
+  }
+  putint(loop_total);
+  return 0;
+}

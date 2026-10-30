@@ -1,0 +1,56 @@
+int storage_zero[128];
+
+int reshape_zero(int count, int values[], int row_width, int hint) {
+  int column_width = count / row_width;
+  int outer = 0;
+  int inner = 0;
+  while (outer < column_width) {
+    inner = 0;
+    while (inner < row_width) {
+      if (outer < inner) {
+        inner = inner + 1;
+        continue;
+      }
+      int saved = values[outer * row_width + inner];
+      values[inner * column_width + outer] =
+          values[outer * row_width + inner];
+      values[outer * row_width + inner] = saved;
+      inner = inner + 1;
+    }
+    outer = outer + 1;
+  }
+  return -7;
+}
+
+int run_zero(int count) {
+  int shapes[3];
+  int shape_count = 3;
+  int cursor = 0;
+  int answer = 5;
+  shapes[0] = 4;
+  shapes[1] = 6;
+  shapes[2] = 3;
+  while (cursor < count) {
+    storage_zero[cursor] = cursor * 3 + 1;
+    if (cursor % 7 == 2)
+      storage_zero[cursor] = cursor - 11;
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    reshape_zero(count, storage_zero, shapes[cursor], cursor + 1);
+    cursor = cursor + 1;
+  }
+  cursor = 0;
+  while (cursor < shape_count) {
+    answer = answer + (cursor + 3) * storage_zero[cursor] - cursor;
+    cursor = cursor + 1;
+  }
+  return answer;
+}
+
+int main() {
+  putint(run_zero(0));
+  putch(10);
+  return 0;
+}

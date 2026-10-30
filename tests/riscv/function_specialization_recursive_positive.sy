@@ -1,0 +1,19 @@
+// 正例：递归调用原样传递控制参数，多个常量调用点可共享特化版本。
+int choose_value(int depth, int mode, int value) {
+  if (depth <= 0) {
+    if (mode == 3) {
+      return value * 2;
+    }
+    return value + mode;
+  }
+  return choose_value(depth - 1, mode, value + 1) + mode;
+}
+
+int main() {
+  int value = getint();
+  int result = choose_value(5, 3, value);
+  result = result + choose_value(7, 3, value + 1);
+  putint(result);
+  putch(10);
+  return 0;
+}

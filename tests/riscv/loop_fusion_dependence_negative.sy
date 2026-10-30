@@ -1,0 +1,24 @@
+int fusion_values[128];
+int fusion_values_aux[128];
+
+int fusion_dependence(int limit) {
+  int index = 0;
+  while (index < limit) {
+    fusion_values[index] = index + 7;
+    fusion_values_aux[index] = index + 9;
+    index = index + 1;
+  }
+  index = 0;
+  int total = 0;
+  while (index < limit) {
+    total = total + fusion_values[index] + fusion_values_aux[index];
+    index = index + 1;
+  }
+  return total;
+}
+
+int main() {
+  putint(fusion_dependence(64));
+  putch(10);
+  return 0;
+}

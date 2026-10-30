@@ -1,0 +1,37 @@
+int values[64];
+
+int main() {
+  int bound = getint();
+  int index = 0;
+  while (index < bound * bound) {
+    values[index] = index + 1;
+    index = index + 1;
+  }
+
+  int row = 0;
+  while (row < bound) {
+    int sum = 0;
+    int column = 0;
+    while (column < bound) {
+      sum = sum + values[row * bound + column];
+      column = column + 1;
+    }
+    column = 0;
+    while (column < bound) {
+      values[row * bound + column] =
+          values[row * bound + column] - sum;
+      column = column + 1;
+    }
+    row = row + 1;
+  }
+
+  int checksum = 0;
+  index = 0;
+  while (index < bound) {
+    checksum = checksum + values[index];
+    index = index + 1;
+  }
+  putint(checksum);
+  putch(10);
+  return 0;
+}

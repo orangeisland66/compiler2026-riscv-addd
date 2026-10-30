@@ -1,0 +1,6 @@
+[bit-pattern] accept-helper bit_and_candidate and
+[bit-pattern] skip-helper main non-i32-two-arg
+[bit-pattern] skip-helper bit_and_candidate loop-count
+[bit-pattern] skip-helper main non-i32-two-arg
+[bit-pattern] skip-helper main non-i32-two-arg
+[bit-pattern] skip-helper main non-i32-two-arg

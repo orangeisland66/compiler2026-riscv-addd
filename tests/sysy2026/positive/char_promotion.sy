@@ -1,0 +1,8 @@
+int add_one(int value) { return value + 1; }
+int take_char(char value) { return (int)value; }
+int main() {
+  char c = 254;
+  int a = c + 2;
+  int b = -c;
+  return add_one(c) + take_char(a) + b;
+}

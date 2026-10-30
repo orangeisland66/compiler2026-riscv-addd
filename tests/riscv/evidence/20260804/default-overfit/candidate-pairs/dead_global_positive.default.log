@@ -1,0 +1,1 @@
+[dead-global-array-store-elim] phase=late gv=scratchpad removed_stores=1

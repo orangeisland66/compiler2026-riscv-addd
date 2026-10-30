@@ -1,0 +1,11 @@
+int putstr(int value) {
+  return value + 1;
+}
+
+int starttime(int value) {
+  return value + 2;
+}
+
+int main() {
+  return putstr(3) + starttime(4);
+}

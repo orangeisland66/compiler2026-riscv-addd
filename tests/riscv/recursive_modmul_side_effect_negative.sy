@@ -1,0 +1,21 @@
+const int MODULUS = 1009;
+
+int multiply_mod_effect(int left, int right) {
+  if (right == 0)
+    return 0;
+  if (right == 1) {
+    putch(32);
+    return left % MODULUS;
+  }
+  int half = multiply_mod_effect(left, right / 2);
+  int doubled = (half + half) % MODULUS;
+  if (right % 2 == 1)
+    return (doubled + left) % MODULUS;
+  return doubled;
+}
+
+int main() {
+  putint(multiply_mod_effect(777, 321));
+  putch(10);
+  return 0;
+}

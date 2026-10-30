@@ -1,0 +1,25 @@
+int __norm___norm_walk_state(int value) {
+  return value + 100;
+}
+
+int __norm_walk_state(int depth, int acc, int context[],
+                      int __norm_ret___norm_walk_state) {
+  if (depth == 0)
+    return acc;
+  if (depth < 0)
+    return 7;
+  return __norm_walk_state(depth - 1, acc + 1, context,
+                           __norm_ret___norm_walk_state);
+}
+
+int main() {
+  int context[1];
+  int depth = getint();
+  int acc = getint();
+  context[0] = 19;
+  putint(__norm_walk_state(depth, acc, context, 19));
+  putch(10);
+  putint(__norm___norm_walk_state(2));
+  putch(10);
+  return 0;
+}

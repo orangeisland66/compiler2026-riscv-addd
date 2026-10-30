@@ -1,0 +1,31 @@
+// 动态正步长循环中的常量除法和取余可在展开后降为乘法、移位与加减。
+int visit_count;
+
+int combine_constant_division(int value) {
+    int mixed = value * 5 + 7;
+    visit_count = visit_count + 1;
+    return mixed / 7 + mixed % 13;
+}
+
+int summarize_constant_division(int start, int end, int step) {
+    int sum = 0;
+    int value = start;
+    while (value < end) {
+        sum = (sum + combine_constant_division(value)) % 1009;
+        value = value + step;
+    }
+    return sum + visit_count;
+}
+
+int main() {
+    visit_count = 0;
+    putint(summarize_constant_division(2, 31, 3));
+    putch(10);
+    visit_count = 0;
+    putint(summarize_constant_division(5, 44, 6));
+    putch(10);
+    visit_count = 0;
+    putint(summarize_constant_division(9, 9, 2));
+    putch(10);
+    return 0;
+}

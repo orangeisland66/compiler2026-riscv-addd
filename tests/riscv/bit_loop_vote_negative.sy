@@ -1,0 +1,23 @@
+int vote_risk(int lhs, int rhs) {
+  int index = 0;
+  int result = 0;
+  while (index < 8) {
+    int masked = (lhs > 0 && rhs > 0) +
+                 (lhs > 1 && rhs > 1) +
+                 (lhs > 2 && rhs > 2) +
+                 (lhs > 3 && rhs > 3) +
+                 (lhs > 4 && rhs > 4) +
+                 (lhs > 5 && rhs > 5);
+    result = result || masked;
+    index = index + 1;
+  }
+  return result + rhs;
+}
+
+int main() {
+  int lhs = getint();
+  int rhs = getint();
+  putint(vote_risk(lhs, rhs));
+  putch(10);
+  return 0;
+}

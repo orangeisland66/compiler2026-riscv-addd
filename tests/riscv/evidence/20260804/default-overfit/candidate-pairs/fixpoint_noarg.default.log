@@ -1,0 +1,2 @@
+[loop-state-fixpoint-break] reject header=advance_state.while.cond2 reason=no-loop-call
+[loop-state-fixpoint-break] reject header=main.while.cond2 reason=latch-term

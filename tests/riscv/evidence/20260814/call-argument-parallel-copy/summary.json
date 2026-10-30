@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-14",
+  "branch": "master-new",
+  "head": "0f18dc6e22872e1277dd42780a45de8a4015f123",
+  "compiler_sha256_after": "ecd009b38ec4e6228fb07306233dd6ef9a806e3144590981a453bd74af05681b",
+  "change": "统一使用 ABI/RegClass 驱动的 call-argument parallel copy；只有真实 overflow 参数进入调用方栈参数区",
+  "assembly_impact": {
+    "suite": "/home/orangeisland66/下载/设计文档/2026初赛RISCV赛道性能用例/performance",
+    "cases": 60,
+    "immediate_sd_then_ld_argument_pairs_before": 237,
+    "immediate_sd_then_ld_argument_pairs_after": 0,
+    "cases_with_pairs_before": 60,
+    "cases_with_pairs_after": 0,
+    "object_instructions_before": 19441,
+    "object_instructions_after": 18607,
+    "instruction_delta": -834,
+    "text_bytes_before": 61518,
+    "text_bytes_after": 59760,
+    "text_byte_delta": -1758,
+    "object_stack_accesses_before": 2658,
+    "object_stack_accesses_after": 1830
+  },
+  "correctness": {
+    "directed_register_and_ten_integer_argument_test": "PASS",
+    "functional_o1": "140/140",
+    "performance_output_correctness_o1": "60/60",
+    "semantic_registry": "9/9",
+    "strict_audit": "12/12",
+    "codegen_determinism": "6/6",
+    "planning_contracts": "PASS"
+  },
+  "dynamic_performance": {
+    "summary": "performance-summary.json",
+    "family_summary": "performance-family-summary.tsv",
+    "raw_forward_baseline": "performance-baseline.csv",
+    "raw_forward_candidate": "performance-candidate.csv",
+    "raw_reverse_candidate": "performance-reverse-candidate.csv",
+    "raw_reverse_baseline": "performance-reverse-baseline.csv",
+    "conclusion": "正向与反向各一轮未证明稳定动态收益，也不足以判定稳定回退"
+  },
+  "temporary_before": "/tmp/syc-rv64-gcc-o3-asm-final-20260814",
+  "temporary_after": "/tmp/syc-rv64-call-args-after-20260814"
+}

@@ -1,0 +1,45 @@
+// 在父循环中加入外部调用，检查符号地址保持在原有循环层级。
+int called_node_labels[32];
+int called_node_links[32];
+int called_node_values[32];
+int called_child_links[32];
+
+int sum_linked_values_with_call(int wanted) {
+  int node = 1;
+  int result = 0;
+  while (node != 0) {
+    putint(0);
+    if (called_node_labels[node] == wanted &&
+        called_node_values[node] >= 0) {
+      int child = node;
+      int sum = 0;
+      while (child != 0) {
+        sum = sum + called_node_values[child];
+        child = called_child_links[child];
+      }
+      result = result + sum;
+    }
+    node = called_node_links[node];
+  }
+  return result;
+}
+
+int main() {
+  int bound = getint();
+  int index = 1;
+  while (index <= bound) {
+    called_node_labels[index] = index;
+    called_node_values[index] = index;
+    called_child_links[index] = 0;
+    if (index < bound) {
+      called_node_links[index] = index + 1;
+    } else {
+      called_node_links[index] = 0;
+    }
+    index = index + 1;
+  }
+
+  putint(sum_linked_values_with_call(bound));
+  putch(10);
+  return 0;
+}

@@ -1,0 +1,29 @@
+// 运行时除数仍保留原循环，避免复制高延迟除法序列和扩大活跃区间。
+int visit_count;
+
+int combine_runtime_division(int value, int divisor) {
+    int mixed = value * 5 + 7;
+    visit_count = visit_count + 1;
+    return mixed / divisor + mixed % 13;
+}
+
+int summarize_runtime_division(int start, int end, int step, int divisor) {
+    int sum = 0;
+    int value = start;
+    while (value < end) {
+        sum = (sum + combine_runtime_division(value, divisor)) % 1009;
+        value = value + step;
+    }
+    return sum + visit_count;
+}
+
+int main() {
+    int divisor = getint();
+    visit_count = 0;
+    putint(summarize_runtime_division(2, 31, 3, divisor));
+    putch(10);
+    visit_count = 0;
+    putint(summarize_runtime_division(5, 44, 6, divisor));
+    putch(10);
+    return 0;
+}

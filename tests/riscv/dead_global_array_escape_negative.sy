@@ -1,0 +1,16 @@
+int scratchpad[32];
+
+int observe(int values[]) {
+  return values[0];
+}
+
+int main() {
+  int cursor = 0;
+  while (cursor < 32) {
+    scratchpad[cursor] = cursor * 3 + 1;
+    cursor = cursor + 1;
+  }
+  putint(observe(scratchpad));
+  putch(10);
+  return 0;
+}

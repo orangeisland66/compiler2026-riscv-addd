@@ -1,0 +1,9 @@
+int main() {
+  int value = 2;
+  switch (value) {
+    case 1: putint(1); break;
+    case 2: putint(2);
+    default: putint(3); break;
+  }
+  return 0;
+}
